@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>採用情報 ｜ いちれん不動産</title>
+<meta name="description" content="いちれん不動産の採用情報ページです。" />
+<meta name="robots" content="noindex, follow" />
+<link rel="canonical" href="https://ichirenfudosan.com/recruit.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f7fafc; --navy:#123b7a; --navy-deep:#0d2c5d; --teal:#19e3c3;
+    --teal-deep:#10b89e; --ink:#16213a; --ink-soft:#4a5670; --line:#e7edf4;
+    --font-jp:"Noto Sans JP",system-ui,sans-serif;
+    --font-en:"Outfit","Noto Sans JP",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:var(--font-jp); color:var(--ink);
+    background:var(--bg); line-height:1.8;
+    min-height:100vh; display:flex; flex-direction:column;
+  }
+  a{text-decoration:none;color:inherit;}
+  /* header */
+  .site-header{background:#fff;border-bottom:1px solid var(--line);}
+  .site-header .wrap{max-width:1200px;margin:0 auto;padding:16px 28px;
+    display:flex;align-items:center;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand img{height:48px;width:auto;display:block;}
+  .brand b{display:block;font-size:18px;font-weight:800;color:var(--navy);letter-spacing:.02em;}
+  .brand span{display:block;font-size:10px;font-weight:600;letter-spacing:.22em;
+    color:var(--teal-deep);font-family:var(--font-en);}
+  /* main */
+  main{flex:1;display:grid;place-items:center;padding:80px 24px;}
+  .card{
+    max-width:620px;width:100%;background:#fff;border:1px solid var(--line);
+    border-radius:22px;box-shadow:0 16px 44px rgba(18,59,122,.12);
+    padding:56px 40px;text-align:center;
+  }
+  .kicker{font-family:var(--font-en);font-weight:700;letter-spacing:.18em;
+    text-transform:uppercase;font-size:13px;color:var(--teal-deep);}
+  .badge{
+    width:74px;height:74px;border-radius:50%;margin:6px auto 26px;
+    display:grid;place-items:center;background:var(--bg);color:var(--navy);
+  }
+  .badge svg{width:38px;height:38px;}
+  h1{font-size:clamp(22px,3.4vw,30px);color:var(--navy);line-height:1.6;margin:0;}
+  .lead{margin-top:18px;color:var(--ink-soft);font-size:15.5px;font-weight:500;}
+  .back{
+    display:inline-flex;align-items:center;gap:.5em;margin-top:34px;
+    font-weight:700;font-size:15px;color:#063b32;background:var(--teal);
+    padding:14px 28px;border-radius:999px;
+    box-shadow:0 10px 24px rgba(25,227,195,.4);
+    transition:transform .18s ease,box-shadow .18s ease;
+  }
+  .back:hover{transform:translateY(-2px);box-shadow:0 16px 30px rgba(25,227,195,.5);}
+  .back svg{width:20px;height:20px;}
+  /* footer */
+  footer{background:var(--navy-deep);color:#cdd9ee;text-align:center;
+    padding:26px 24px;font-size:13px;}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" id="homeLink" href="pc.html" aria-label="いちれん不動産">
+      <img src="assets/logo_mark_hd.png" alt="いちれん不動産 ロゴ" />
+      <span class="bt"><b>いちれん不動産</b><span>ICHIREN REAL ESTATE</span></span>
+    </a>
+  </div>
+</header>
+
+<main>
+  <div class="card">
+    <div class="kicker">Recruit</div>
+    <div class="badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M22 11h-6"/>
+      </svg>
+    </div>
+    <h1>申し訳ございません。<br />現在採用は行っておりません。</h1>
+    <p class="lead">いちれん不動産の採用情報にご関心をお寄せいただき、誠にありがとうございます。募集を再開する際は、こちらのページでお知らせいたします。</p>
+    <a class="back" id="backLink" href="pc.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      トップへ戻る
+    </a>
+  </div>
+</main>
+
+<footer>
+  © いちれん不動産 ICHIREN REAL ESTATE
+</footer>
+</body>
+</html>
