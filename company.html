@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>会社概要 | 一蓮建設株式会社</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brand:#123B7A;       /* ブランド紺 */
+    --brand-2:#2b5cab;     /* 明るい紺 */
+    --teal:#19E3C3;        /* アクセント1 ミント */
+    --teal-ink:#0aa78f;    /* 文字用の濃いミント */
+    --pink:#FF4FA3;        /* アクセント2 */
+    --lime:#D7FF00;        /* アクセント3 */
+    --bg:#F7FAFC;          /* サブベース */
+    --card:#ffffff;
+    --line:#e3e9f1;        /* 罫線 */
+    --grey:#6b7689;        /* 補助テキスト */
+    --text:#1f2733;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Noto Sans JP",sans-serif;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* brand ribbon */
+  .ribbon{height:5px;background:linear-gradient(90deg,var(--brand) 0%,var(--teal) 55%,var(--lime) 100%);}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- Header ---------- */
+  .masthead{position:relative;overflow:hidden;padding:74px 0 50px;background:linear-gradient(180deg,#ffffff 0%,var(--bg) 100%);border-bottom:1px solid var(--line);}
+  .masthead::before{content:"";position:absolute;top:-120px;right:-100px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(25,227,195,.28),rgba(25,227,195,0) 70%);pointer-events:none;}
+  .masthead::after{content:"";position:absolute;bottom:-60px;right:120px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(255,79,163,.14),rgba(255,79,163,0) 70%);pointer-events:none;}
+  .masthead .wrap{position:relative;z-index:1;}
+  .eyebrow{
+    font-family:"Outfit",sans-serif;
+    font-size:.78rem;letter-spacing:.3em;font-weight:700;
+    color:var(--teal-ink);text-transform:uppercase;margin:0 0 18px;
+    display:flex;align-items:center;gap:14px;
+  }
+  .eyebrow::after{content:"";flex:0 0 56px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--teal),var(--lime));}
+  .masthead h1{
+    font-family:"Noto Sans JP",sans-serif;font-weight:900;
+    font-size:clamp(2.4rem,6vw,3.7rem);line-height:1.15;
+    margin:0 0 8px;color:var(--brand);letter-spacing:.04em;
+  }
+  .masthead .en{font-family:"Outfit",sans-serif;font-size:.86rem;letter-spacing:.24em;color:var(--grey);font-weight:600;margin:0 0 30px;}
+  .lead{font-size:1.02rem;max-width:62ch;color:#3a4150;margin:0;}
+
+  /* ---------- Section scaffolding ---------- */
+  section{padding:60px 0;border-bottom:1px solid var(--line);}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin:0 0 34px;}
+  .sec-head .num{
+    font-family:"Outfit",sans-serif;font-size:1.05rem;color:var(--teal-ink);
+    font-weight:700;letter-spacing:.04em;
+  }
+  .sec-head h2{
+    font-family:"Noto Sans JP",sans-serif;font-weight:700;
+    font-size:1.5rem;color:var(--brand);margin:0;letter-spacing:.04em;
+  }
+  .sec-head .sub{margin-left:auto;font-size:.78rem;color:var(--grey);letter-spacing:.04em;}
+
+  /* ---------- Growth chart ---------- */
+  .chart-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:30px 26px 22px;box-shadow:0 8px 28px rgba(18,59,122,.05);}
+  .chart-card svg{width:100%;height:auto;display:block;}
+  .chart-foot{
+    display:flex;flex-wrap:wrap;gap:24px;align-items:baseline;
+    margin-top:18px;padding-top:18px;border-top:1px solid var(--line);
+  }
+  .chart-foot .big{
+    font-family:"Noto Sans JP",sans-serif;color:var(--brand);
+    font-size:1.18rem;font-weight:700;
+  }
+  .chart-foot .big b{color:var(--teal-ink);font-size:1.8rem;}
+  .chart-foot .note{font-size:.94rem;color:var(--grey);}
+
+  /* ---------- Split: donut + stats ---------- */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 26px;box-shadow:0 8px 28px rgba(18,59,122,.05);}
+  .panel h3{
+    font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:1.05rem;
+    color:var(--brand);margin:0 0 20px;letter-spacing:.03em;
+  }
+  .donut-row{display:flex;align-items:center;gap:24px;}
+  .donut-row svg{flex:0 0 150px;}
+  .legend{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;width:100%;}
+  .legend li{display:flex;align-items:center;gap:10px;font-size:1.02rem;}
+  .legend .dot{width:13px;height:13px;border-radius:4px;flex:0 0 auto;}
+  .legend .lab{color:var(--text);}
+  .legend .pct{margin-left:auto;font-weight:700;color:var(--brand);font-variant-numeric:tabular-nums;}
+
+  .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+  .stat{background:var(--card);padding:20px 18px;}
+  .stat .k{font-size:.74rem;color:var(--grey);letter-spacing:.06em;margin:0 0 6px;}
+  .stat .v{font-family:"Outfit",sans-serif;color:var(--brand);font-size:1.55rem;font-weight:700;line-height:1.2;}
+  .stat .v small{font-family:"Noto Sans JP",sans-serif;font-size:.78rem;font-weight:500;color:var(--grey);margin-left:3px;}
+
+  /* ---------- Definition table ---------- */
+  .dl{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card);box-shadow:0 8px 28px rgba(18,59,122,.05);}
+  .dl .row{display:grid;grid-template-columns:220px 1fr;border-bottom:1px solid var(--line);}
+  .dl .row:last-child{border-bottom:none;}
+  .dl dt{
+    padding:16px 20px;background:rgba(18,59,122,.04);
+    font-weight:700;color:var(--brand);font-size:1.04rem;letter-spacing:.03em;margin:0;
+  }
+  .dl dd{padding:16px 22px;margin:0;font-size:1.08rem;color:var(--text);}
+  .dl dd .muted{color:var(--grey);font-size:.94rem;}
+
+  /* ---------- Licenses ---------- */
+  .lic-list{list-style:none;margin:0 0 26px;padding:0;display:grid;gap:10px;}
+  .lic-list li{
+    display:flex;gap:14px;align-items:flex-start;
+    padding:15px 20px;background:var(--card);border:1px solid var(--line);border-radius:12px;
+    box-shadow:0 6px 20px rgba(18,59,122,.04);
+  }
+  .lic-list .mark{
+    flex:0 0 auto;width:32px;height:32px;border-radius:9px;
+    background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;display:grid;place-items:center;
+    font-size:.9rem;font-weight:700;font-family:"Noto Sans JP",sans-serif;
+  }
+  .lic-list .body strong{display:block;color:var(--brand);font-size:1.22rem;font-weight:700;}
+  .lic-list .body span{font-size:1.02rem;color:var(--grey);}
+  .trades{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:0 12px 12px 0;padding:20px 24px;box-shadow:0 6px 20px rgba(18,59,122,.04);}
+  .trades p:first-child{margin:0 0 12px;font-size:.88rem;letter-spacing:.05em;color:var(--teal-ink);font-weight:700;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;}
+  .chip{font-size:1rem;background:var(--bg);border:1px solid var(--line);color:var(--brand);padding:7px 15px;border-radius:20px;}
+
+  /* ---------- Footer ---------- */
+  footer{padding:46px 0 64px;text-align:center;background:var(--brand);color:#fff;}
+  footer .name{font-family:"Noto Sans JP",sans-serif;color:#fff;font-size:1.15rem;font-weight:700;letter-spacing:.06em;}
+  footer .en-name{font-family:"Outfit",sans-serif;font-size:.72rem;letter-spacing:.26em;color:var(--teal);margin-top:4px;text-transform:uppercase;}
+  footer .addr{font-size:.88rem;color:rgba(255,255,255,.72);margin-top:12px;}
+
+  /* ---------- PCでは文字を大きく・幅を広く ---------- */
+  @media (min-width:900px){
+    html{font-size:17.5px;}
+    .wrap{padding:0 40px;}
+    .lead{font-size:1.1rem;max-width:70ch;}
+    .sec-head h2{font-size:1.65rem;}
+  }
+  @media (min-width:1400px){
+    html{font-size:19px;}
+  }
+
+  @media (max-width:720px){
+    .masthead{padding:54px 0 38px;}
+    section{padding:46px 0;}
+    .split{grid-template-columns:1fr;}
+    .donut-row{flex-direction:column;align-items:flex-start;}
+    .donut-row svg{flex:0 0 auto;width:170px;align-self:center;}
+    .dl .row{grid-template-columns:1fr;}
+    .dl dt{border-bottom:1px solid var(--line);}
+    .stat-grid{grid-template-columns:1fr;}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .bar,.seg{animation:rise .9s cubic-bezier(.2,.8,.25,1) both;}
+    @keyframes rise{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+  }
+</style>
+</head>
+<body>
+
+<div class="ribbon"></div>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="eyebrow">Company Profile</p>
+    <h1>会社概要</h1>
+    <p class="en">ICHIREN CONSTRUCTION CO., LTD.</p>
+    <p class="lead">一蓮建設株式会社は、神奈川県厚木市を拠点に、宅地造成・外構工事を中心とした土木・舗装・建築工事、および不動産事業を手がける建設会社です。平成25年の設立以来、着実に成長を重ね、公共・民間・外構のバランスのとれた受注構成で安定した経営を続けています。</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== Sales growth ===== -->
+  <section id="growth">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="num">01</span>
+        <h2>売上高の推移</h2>
+        <span class="sub">単位：億円</span>
+      </div>
+      <div class="chart-card">
+        <svg id="barChart" viewBox="0 0 920 420" role="img" aria-label="売上高の推移グラフ"></svg>
+        <div class="chart-foot">
+          <span class="big">R6年度（2024年度）売上高&nbsp;<b>6.33億円</b></span>
+          <span class="note">設立年度（H26）比 約12倍。設立以来、成長を継続しています。</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Order mix + key stats ===== -->
+  <section id="overview">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="num">02</span>
+        <h2>受注割合と概況</h2>
+      </div>
+      <div class="split">
+        <div class="panel">
+          <h3>受注割合</h3>
+          <div class="donut-row">
+            <svg id="donut" viewBox="0 0 200 200" role="img" aria-label="受注割合の円グラフ"></svg>
+            <ul class="legend">
+              <li><span class="dot" style="background:#19E3C3"></span><span class="lab">民間工事</span><span class="pct">50%</span></li>
+              <li><span class="dot" style="background:#123B7A"></span><span class="lab">公共工事</span><span class="pct">30%</span></li>
+              <li><span class="dot" style="background:#FF4FA3"></span><span class="lab">外構工事</span><span class="pct">20%</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>主要指標</h3>
+          <div class="stat-grid">
+            <div class="stat"><p class="k">設立</p><p class="v">2013<small>年</small></p></div>
+            <div class="stat"><p class="k">資本金</p><p class="v">2,000<small>万円</small></p></div>
+            <div class="stat"><p class="k">従業員数</p><p class="v">18<small>名</small></p></div>
+            <div class="stat"><p class="k">R6年度売上</p><p class="v">6.33<small>億円</small></p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Company facts ===== -->
+  <section id="facts">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="num">03</span>
+        <h2>会社情報</h2>
+      </div>
+      <dl class="dl">
+        <div class="row"><dt>会社名</dt><dd>一蓮建設株式会社</dd></div>
+        <div class="row"><dt>所在地</dt><dd>神奈川県厚木市妻田東3-39-5 アパートメントスペースⅠ 103</dd></div>
+        <div class="row"><dt>電話 / FAX</dt><dd>TEL 046-259-5604 ／ FAX 046-205-2050</dd></div>
+        <div class="row"><dt>代表者</dt><dd>代表取締役　木村 惇（きむら まこと）</dd></div>
+        <div class="row"><dt>設立</dt><dd>平成25年（2013年）6月18日</dd></div>
+        <div class="row"><dt>資本金</dt><dd>2,000万円</dd></div>
+        <div class="row"><dt>従業員数</dt><dd>18名</dd></div>
+        <div class="row"><dt>事業内容</dt><dd>土木工事一式／舗装工事一式／建築工事一式／不動産事業</dd></div>
+        <div class="row"><dt>受注割合</dt><dd>公共工事 3割／民間工事 5割／外構工事 2割</dd></div>
+        <div class="row"><dt>取引銀行</dt><dd>横浜銀行／平塚信用金庫／きらぼし銀行／中栄信用金庫</dd></div>
+        <div class="row"><dt>主要取引先</dt><dd>株式会社小島組／旭化成ホームズ株式会社</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ===== Licenses ===== -->
+  <section id="licenses" style="border-bottom:none;">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="num">04</span>
+        <h2>許認可</h2>
+      </div>
+      <ul class="lic-list">
+        <li><span class="mark">建</span><span class="body"><strong>特定建設業許可</strong><span>神奈川県知事（特-5）第79486号</span></span></li>
+        <li><span class="mark">建</span><span class="body"><strong>二級建築士事務所登録</strong><span>神奈川県知事 第10854号</span></span></li>
+        <li><span class="mark">宅</span><span class="body"><strong>宅地建物取引業</strong><span>神奈川県知事（1）第31873号</span></span></li>
+        <li><span class="mark">産</span><span class="body"><strong>産業廃棄物収集運搬業許可</strong><span>神奈川県知事 第01402187940号</span></span></li>
+      </ul>
+      <div class="trades">
+        <p>建設業許可の業種</p>
+        <div class="chips">
+          <span class="chip">土木工事業</span><span class="chip">建築工事業</span><span class="chip">大工工事業</span>
+          <span class="chip">とび・土工工事業</span><span class="chip">石工事業</span>
+          <span class="chip">タイル・れんが・ブロック工事業</span><span class="chip">鋼構造物工事業</span>
+          <span class="chip">鉄筋工事業</span><span class="chip">舗装工事業</span><span class="chip">しゅんせつ工事業</span>
+          <span class="chip">造園工事業</span><span class="chip">水道施設工事業</span><span class="chip">解体工事業</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="name">一蓮建設株式会社</p>
+    <p class="en-name">Ichiren Construction</p>
+    <p class="addr">〒243-0801　神奈川県厚木市妻田東3-39-5 アパートメントスペースⅠ 103　／　TEL 046-259-5604</p>
+    <p style="margin-top:20px;"><a href="pc.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px;font-size:13px;opacity:.85;">← いちれん不動産トップへ戻る</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var NS="http://www.w3.org/2000/svg";
+  function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+
+  /* ---------- Bar chart ---------- */
+  var sales=[
+    {y:"H26",v:0.52},{y:"H27",v:0.62},{y:"H28",v:1.03},{y:"H29",v:1.76},
+    {y:"H30",v:2.63},{y:"R元",v:2.63},{y:"R2",v:2.43},{y:"R3",v:4.00},
+    {y:"R4",v:3.36},{y:"R5",v:4.12},{y:"R6",v:6.33}
+  ];
+  var svg=document.getElementById("barChart");
+  var W=920,H=420,padL=58,padR=24,padT=28,padB=54;
+  var plotW=W-padL-padR, plotH=H-padT-padB, base=padT+plotH;
+  var max=7;
+  function yOf(v){return base-(v/max)*plotH;}
+
+  for(var g=0;g<=max;g++){
+    var gy=yOf(g);
+    svg.appendChild(el("line",{x1:padL,y1:gy,x2:W-padR,y2:gy,stroke:"#e3e9f1","stroke-width":g===0?1.6:1}));
+    var t=el("text",{x:padL-12,y:gy+4,"text-anchor":"end","font-size":15,fill:"#6b7689","font-family":"'Outfit',sans-serif"});
+    t.textContent=g;
+    svg.appendChild(t);
+  }
+
+  var slot=plotW/sales.length, bw=Math.min(46,slot*0.62);
+  sales.forEach(function(d,i){
+    var cx=padL+slot*i+slot/2;
+    var x=cx-bw/2, y=yOf(d.v), h=base-y;
+    var last=(i===sales.length-1);
+    var r=el("rect",{x:x,y:y,width:bw,height:h,rx:4,fill:last?"#19E3C3":"#123B7A",class:"bar"});
+    r.style.animationDelay=(i*0.05)+"s";
+    svg.appendChild(r);
+    var vt=el("text",{x:cx,y:y-8,"text-anchor":"middle","font-size":last?17:15,fill:last?"#0aa78f":"#123B7A","font-weight":700,"font-family":"'Outfit',sans-serif"});
+    vt.textContent=d.v.toFixed(2);
+    svg.appendChild(vt);
+    var xt=el("text",{x:cx,y:base+24,"text-anchor":"middle","font-size":15,fill:last?"#123B7A":"#6b7689","font-weight":last?700:400,"font-family":"'Noto Sans JP',sans-serif"});
+    xt.textContent=d.y;
+    svg.appendChild(xt);
+  });
+
+  /* ---------- Donut ---------- */
+  var d2=document.getElementById("donut");
+  var segs=[{p:50,c:"#19E3C3"},{p:30,c:"#123B7A"},{p:20,c:"#FF4FA3"}];
+  var cx=100,cy=100,rad=72,sw=26,C=2*Math.PI*rad,off=0;
+  d2.appendChild(el("circle",{cx:cx,cy:cy,r:rad,fill:"none",stroke:"#eef2f7","stroke-width":sw}));
+  segs.forEach(function(s,i){
+    var len=C*s.p/100;
+    var c=el("circle",{cx:cx,cy:cy,r:rad,fill:"none",stroke:s.c,"stroke-width":sw,
+      "stroke-dasharray":len+" "+(C-len),"stroke-dashoffset":-off,
+      transform:"rotate(-90 "+cx+" "+cy+")","stroke-linecap":"butt",class:"seg"});
+    c.style.animationDelay=(0.15*i)+"s";
+    d2.appendChild(c);
+    off+=len;
+  });
+  var ct=el("text",{x:cx,y:cy-2,"text-anchor":"middle","font-size":20,fill:"#123B7A","font-weight":700,"font-family":"'Noto Sans JP',sans-serif"});
+  ct.textContent="受注";
+  d2.appendChild(ct);
+  var ct2=el("text",{x:cx,y:cy+16,"text-anchor":"middle","font-size":13,fill:"#6b7689","font-family":"'Noto Sans JP',sans-serif"});
+  ct2.textContent="構成比";
+  d2.appendChild(ct2);
+})();
+</script>
+</body>
+</html>
