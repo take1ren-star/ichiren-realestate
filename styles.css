@@ -1,31 +1,10 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>いちれん不動産 ｜ 土地に、次の価値を。</title>
-<meta name="description" content="土木会社だからこそ、土地を深く理解している。売却・管理・相続・土地活用までワンストップでサポートする地域密着の不動産会社、いちれん不動産。" />
-<!-- ===== SEO / 検索対策（スマホ版）===== -->
-<link rel="canonical" href="https://ichirenfudosan.com/" />
-<meta name="robots" content="index, follow" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="いちれん不動産" />
-<meta property="og:title" content="いちれん不動産 ｜ 土地に、次の価値を。" />
-<meta property="og:description" content="売却・管理・相続・土地活用までワンストップでサポートする地域密着の不動産会社、いちれん不動産。" />
-<meta property="og:url" content="https://ichirenfudosan.com/" />
-<meta property="og:image" content="https://ichirenfudosan.com/assets/hero_full.png" />
-<meta property="og:locale" content="ja_JP" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-<style>
 /* ============================================================
    いちれん不動産 — Brand stylesheet
    Colors: white / #F7FAFC / navy #123B7A / teal #19E3C3
            pink #FF4FA3 / lime #D7FF00
    Type:   Outfit (EN display) / Noto Sans JP (JP body)
    ============================================================ */
- 
+
 :root{
   --white:#ffffff;
   --bg:#f7fafc;
@@ -49,7 +28,7 @@
   --font-jp:"Noto Sans JP",system-ui,sans-serif;
   --font-en:"Outfit","Noto Sans JP",sans-serif;
 }
- 
+
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{
@@ -68,10 +47,10 @@ img{display:block;max-width:100%;}
 h1,h2,h3,h4{margin:0;line-height:1.4;font-weight:700;letter-spacing:.01em;}
 p{margin:0;}
 ul{margin:0;padding:0;list-style:none;}
- 
+
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
 .en{font-family:var(--font-en);}
- 
+
 /* ---------- Buttons ---------- */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:.6em;
@@ -96,9 +75,9 @@ ul{margin:0;padding:0;list-style:none;}
 .btn-ghost:hover{border-color:var(--teal);color:var(--teal-deep);transform:translateY(-2px);}
 .btn-lg{font-size:17px;padding:18px 32px;}
 .btn-block{display:flex;width:100%;}
- 
+
 .ico{width:1.15em;height:1.15em;flex:none;}
- 
+
 /* ---------- Header ---------- */
 .site-header{
   position:sticky;top:0;z-index:60;
@@ -117,7 +96,7 @@ ul{margin:0;padding:0;list-style:none;}
 .nav a:hover::after{right:0;}
 .header-cta{margin-left:auto;display:flex;align-items:center;gap:12px;flex:none;}
 .menu-btn{display:none;}
- 
+
 /* ---------- Hero ---------- */
 .hero{position:relative;overflow:hidden;background:var(--white);padding:60px 0 84px;}
 .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;}
@@ -134,7 +113,7 @@ ul{margin:0;padding:0;list-style:none;}
 .chip .ci{width:38px;height:38px;flex:none;display:grid;place-items:center;border-radius:50%;background:var(--bg);color:var(--navy);}
 .chip .ci svg{width:22px;height:22px;}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;}
- 
+
 .hero-media{position:relative;}
 .hero-img{width:112%;max-width:none;height:auto;display:block;margin-left:-6%;}
 .blobimg{
@@ -145,7 +124,7 @@ ul{margin:0;padding:0;list-style:none;}
 .blobimg img{width:100%;height:100%;object-fit:cover;}
 .hero-media .ring{position:absolute;inset:-3% -3%;
   background:url("shapes/shape_03.png") center/contain no-repeat;opacity:.0;}
- 
+
 /* decorative scatter */
 .deco{position:absolute;pointer-events:none;z-index:1;user-select:none;}
 .deco.d-dotpink{width:120px;top:6%;right:20%;background:url("shapes/shape_22.png") center/contain no-repeat;height:120px;opacity:.9;}
@@ -154,7 +133,7 @@ ul{margin:0;padding:0;list-style:none;}
 .deco.d-sparkteal{width:40px;height:40px;bottom:30%;left:46%;background:url("shapes/shape_34.png") center/contain no-repeat;}
 .deco.d-blobyellow{width:130px;height:130px;bottom:6%;left:40%;background:url("shapes/shape_16.png") center/contain no-repeat;opacity:.85;}
 .deco.d-blobpink{width:30px;height:30px;top:54%;left:40%;background:url("shapes/shape_15.png") center/contain no-repeat;}
- 
+
 /* ---------- Section scaffolding ---------- */
 .section{padding:104px 0;position:relative;}
 .section.alt{background:var(--bg);}
@@ -166,14 +145,14 @@ ul{margin:0;padding:0;list-style:none;}
 .sec-title{font-size:clamp(26px,3.4vw,38px);color:var(--navy);letter-spacing:.02em;}
 .sec-title .accent{color:var(--teal-deep);}
 .sec-sub{margin-top:12px;color:var(--ink-soft);font-weight:500;}
- 
+
 /* ---------- Main vertical stack ---------- */
 .stack{display:flex;flex-direction:column;gap:96px;}
 .faq{max-width:900px;margin-left:auto;margin-right:auto;width:100%;}
 .cta-row{display:grid;grid-template-columns:1fr 1fr;gap:28px;width:100%;max-width:1100px;margin:0 auto;align-items:stretch;}
 .cta-panel,.line-panel{height:100%;}
 .cta-actions{max-width:540px;}
- 
+
 /* ---------- Service cards ---------- */
 .svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;margin-top:30px;}
 .svc-card{
@@ -198,7 +177,7 @@ ul{margin:0;padding:0;list-style:none;}
 .svc-more .arr{width:30px;height:30px;border-radius:50%;background:var(--bg);display:grid;place-items:center;
   transition:background .2s ease,transform .2s ease;}
 .svc-card:hover .svc-more .arr{background:var(--teal);transform:translateX(3px);}
- 
+
 /* ---------- Strengths ---------- */
 .strength-band{margin-top:0;}
 .strength-lead{font-size:clamp(22px,2.6vw,30px);color:var(--navy);font-weight:800;line-height:1.5;}
@@ -214,10 +193,10 @@ ul{margin:0;padding:0;list-style:none;}
 .strength .sicon svg{width:56px;height:56px;}
 .strength h4{font-size:18px;color:var(--navy);}
 .strength p{margin-top:10px;font-size:14px;color:var(--ink-soft);}
- 
+
 /* ---------- Sidebar column ---------- */
 .aside{display:flex;flex-direction:column;gap:28px;position:sticky;top:98px;}
- 
+
 /* FAQ */
 .faq{background:#fff;border-radius:var(--radius);border:1px solid var(--line);box-shadow:var(--shadow-sm);
   padding:30px 26px;}
@@ -239,7 +218,7 @@ ul{margin:0;padding:0;list-style:none;}
   font-weight:700;color:var(--navy);font-size:14.5px;}
 .faq-all .arr{color:var(--teal-deep);}
 .faq-all:hover{color:var(--teal-deep);}
- 
+
 /* CTA panel */
 .cta-panel{position:relative;border-radius:26px;overflow:hidden;padding:34px 30px;color:var(--navy);
   background:linear-gradient(120deg,var(--lime) 0%,#9bf06b 38%,var(--teal) 100%);box-shadow:var(--shadow);}
@@ -250,7 +229,7 @@ ul{margin:0;padding:0;list-style:none;}
 .cta-checks span{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.85);
   border-radius:999px;padding:7px 13px;font-size:12.5px;font-weight:700;color:var(--navy);}
 .cta-checks svg{width:13px;height:13px;color:var(--teal-deep);}
- 
+
 /* LINE panel */
 .line-panel{background:#fff;border-radius:26px;border:1px solid var(--line);box-shadow:var(--shadow-sm);
   padding:30px 28px;position:relative;overflow:hidden;}
@@ -266,7 +245,7 @@ ul{margin:0;padding:0;list-style:none;}
 .line-checks svg{width:13px;height:13px;color:var(--green-line);}
 .phone-deco{position:absolute;right:-6px;bottom:-10px;width:120px;height:200px;border:7px solid var(--navy);
   border-radius:26px;background:#fff;display:none;}
- 
+
 /* ---------- Footer ---------- */
 .site-footer{background:var(--navy-deep);color:#cdd9ef;padding:56px 0 30px;}
 .foot-top{display:flex;flex-wrap:wrap;gap:30px;align-items:flex-start;justify-content:space-between;}
@@ -287,17 +266,45 @@ ul{margin:0;padding:0;list-style:none;}
 .foot-contact small{display:block;margin-top:6px;font-size:12.5px;color:#9fb2d6;}
 .foot-bottom{margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);
   display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:12px;color:#8aa0c8;}
- 
+
 /* sticky mobile bar */
 .mobile-bar{display:none;}
- 
+
 /* ---------- Responsive ---------- */
- 
- 
- 
- 
- 
- 
+@media(max-width:1100px){
+  .nav,.header-cta{display:none;}
+  .menu-btn{display:inline-flex;margin-left:auto;width:46px;height:46px;border-radius:12px;border:1px solid var(--line);
+    background:#fff;align-items:center;justify-content:center;cursor:pointer;flex-direction:column;gap:4px;}
+  .menu-btn span{width:20px;height:2px;background:var(--navy);border-radius:2px;}
+}
+@media(max-width:1080px){
+  .body-grid{grid-template-columns:1fr;gap:54px;}
+  .aside{position:static;}
+}
+@media(max-width:880px){
+  .hero .wrap{grid-template-columns:1fr;gap:30px;}
+  .hero-media{order:-1;max-width:440px;margin:0 auto;}
+  .eyebrow-script{position:static;display:block;margin-bottom:6px;width:200px;}
+  .section{padding:62px 0;}
+  .mobile-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:70;gap:0;
+    background:#fff;border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(18,59,122,.12);}
+  .mobile-bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:15px 6px;
+    font-weight:700;font-size:14px;}
+  .mobile-bar a.m-tel{color:var(--navy);}
+  .mobile-bar a.m-line{background:var(--green-line);color:#fff;}
+  .mobile-bar a.m-cta{background:var(--teal);color:#063b32;}
+  body{padding-bottom:58px;}
+  .foot-contact{text-align:left;}
+}
+@media(max-width:840px){
+  .cta-row{grid-template-columns:1fr;}
+}
+@media(max-width:560px){
+  .wrap{padding:0 18px;}
+  .hero h1{line-height:1.3;}
+  .chips{gap:12px 16px;}
+}
+
 /* nav drawer */
 .drawer{position:fixed;inset:0;z-index:80;background:rgba(13,44,93,.5);opacity:0;visibility:hidden;
   transition:opacity .25s ease;}
@@ -308,13 +315,13 @@ ul{margin:0;padding:0;list-style:none;}
 .drawer-panel a{padding:15px 6px;font-weight:700;font-size:17px;color:var(--ink);border-bottom:1px solid var(--line);}
 .drawer-panel .dactions{display:flex;flex-direction:column;gap:12px;margin-top:20px;}
 .drawer-close{align-self:flex-end;background:none;border:0;font-size:30px;line-height:1;color:var(--navy);cursor:pointer;}
- 
+
 /* ---------- Hero note (microcopy) ---------- */
 .hero-note{margin-top:14px;font-size:13px;font-weight:600;color:var(--ink-soft);
   display:inline-flex;align-items:center;gap:7px;}
 .hero-note::before{content:"";width:16px;height:16px;flex:none;border-radius:50%;
   background:rgba(25,227,195,.18);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2310b89e' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12l5 5L20 6'/%3E%3C/svg%3E");background-size:11px;background-position:center;background-repeat:no-repeat;}
- 
+
 /* ---------- Worries / empathy band ---------- */
 .worries-sec{padding:70px 0 36px;}
 .worries-band{background:#eef3fb;border:1px solid var(--line);border-radius:var(--radius);
@@ -332,339 +339,12 @@ ul{margin:0;padding:0;list-style:none;}
 .worry-cta{text-align:center;margin-top:30px;font-size:clamp(18px,2.2vw,22px);font-weight:800;color:var(--navy);}
 .worry-cta .em{color:var(--teal-deep);background:linear-gradient(transparent 58%,rgba(25,227,195,.32) 58%);padding:0 .12em;}
 .worry-cta .sub{display:block;margin-top:8px;font-size:14px;font-weight:600;color:var(--ink-soft);}
- 
- 
- 
- 
-/* ===== PC-design-fit-to-width wrapper ===== */
-html,body{margin:0;background:#fff;}
-body{overflow-x:hidden;}
-#pcwrap{width:1280px;transform-origin:top left;position:absolute;top:0;left:0;}
-.site-header{position:static !important;}
-.mobile-bar{display:none !important;}
-.reveal{opacity:1 !important;transform:none !important;}
-</style>
-</head>
-<body>
-<div id="pcwrap">
- 
- 
-<!-- ============ HEADER ============ -->
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="#top" aria-label="いちれん不動産">
-      <img src="assets/logo_mark_hd.png" alt="いちれん不動産 ロゴ" />
-      <span class="bt"><b>いちれん不動産</b><span>ICHIREN REAL ESTATE</span></span>
-    </a>
-    <nav class="nav">
-      <a href="#service">サービス</a>
-      <a href="#strength">強み</a>
-      <a href="#faq">よくあるご質問</a>
-      <a href="#company">会社概要</a>
-      <a href="recruit.html">採用情報</a>
-    </nav>
-    <div class="header-cta">
-      <a class="btn btn-teal" href="mailto:1ren_fudosan@ichirenfudosan.com?subject=%E7%84%A1%E6%96%99%E7%9B%B8%E8%AB%87%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7.5l9 6 9-6"/></svg> 無料相談する <svg class="arr ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn btn-line-ghost" href="https://lin.ee/W9f8FJ3"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.9 3 2.75 6.34 2.75 10.46c0 3.69 3.29 6.78 7.74 7.37.3.06.71.2.81.46.09.24.06.6.03.85l-.13.79c-.04.23-.18.91.8.5.98-.42 5.3-3.12 7.23-5.34 1.33-1.46 1.97-2.95 1.97-4.63C21.2 6.34 17.06 3 12 3Z"/></svg> LINEで相談</a>
-    </div>
-    <button class="menu-btn" id="menuBtn" aria-label="メニュー"><span></span><span></span><span></span></button>
-  </div>
-</header>
- 
-<!-- nav drawer (mobile) -->
-<div class="drawer" id="drawer">
-  <div class="drawer-panel">
-    <button class="drawer-close" id="drawerClose" aria-label="閉じる">×</button>
-    <a href="#service">サービス</a>
-    <a href="#strength">強み</a>
-    <a href="#faq">よくあるご質問</a>
-    <a href="#company">会社概要</a>
-    <a href="recruit.html">採用情報</a>
-    <div class="dactions">
-      <a class="btn btn-teal btn-block" href="mailto:1ren_fudosan@ichirenfudosan.com?subject=%E7%84%A1%E6%96%99%E7%9B%B8%E8%AB%87%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7.5l9 6 9-6"/></svg> 無料相談する</a>
-      <a class="btn btn-line btn-block" href="https://lin.ee/W9f8FJ3">LINEで相談する</a>
-    </div>
-  </div>
-</div>
- 
-<main id="top">
- 
-<!-- ============ HERO / FV ============ -->
-<section class="hero">
-  <div class="wrap">
-    <div class="hero-copy">
-      <img class="eyebrow-script" src="assets/nextvalue.png" alt="Next Value" />
-      <h1>その土地を、<br />次の世代へ<span class="dot" style="color: rgb(18, 59, 122)">。</span></h1>
-      <p class="hero-lead" style="font-weight: 600; font-family: &quot;Noto Sans JP&quot;">先祖代々の土地、空き家、相続──。<br />「誰に相談すればいいか分からない」を、<br />地域に根ざしたいちれん不動産が解決します。</p>
-      <ul class="chips">
-        <li class="chip"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg></span>地域密着20年以上</li>
-        <li class="chip"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5"/><path d="M16 11.5c1.6-.9 2.6-2.3 2.6-3.8M21 20c0-2.3-1.6-4-4-4.5"/></svg></span>相続のご相談多数</li>
-        <li class="chip"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/></svg></span>土木会社だからわかる土地の目利き</li>
-        <li class="chip"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6Z"/><path d="M9 12l2 2 4-4"/></svg></span>相談無料・秘密厳守</li>
-      </ul>
-      <div class="hero-actions">
-        <a class="btn btn-teal btn-lg" href="mailto:1ren_fudosan@ichirenfudosan.com?subject=%E7%84%A1%E6%96%99%E7%9B%B8%E8%AB%87%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7.5l9 6 9-6"/></svg> 無料相談する <svg class="arr ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-line-ghost btn-lg" href="https://lin.ee/W9f8FJ3"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.9 3 2.75 6.34 2.75 10.46c0 3.69 3.29 6.78 7.74 7.37.3.06.71.2.81.46.09.24.06.6.03.85l-.13.79c-.04.23-.18.91.8.5.98-.42 5.3-3.12 7.23-5.34 1.33-1.46 1.97-2.95 1.97-4.63C21.2 6.34 17.06 3 12 3Z"/></svg> LINEで相談する</a>
-      </div>
-      <p class="hero-note">しつこい営業は一切いたしません。</p>
-    </div>
-    <div class="hero-media">
-      <img class="hero-img" src="assets/hero_full.png" alt="都市の街並み" />
-    </div>
-  </div>
-</section>
- 
-<!-- ============ お悩み共感ブロック ============ -->
-<section class="worries-sec">
-  <div class="wrap">
-    <div class="worries-band reveal">
-      <div class="worries-head">
-        <span class="sec-kicker">Check</span>
-        <h2>土地と相続、こんなお悩みはありませんか？</h2>
-      </div>
-      <ul class="worry-list">
-        <li class="worry"><span class="wk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>相続した土地を、活用すべきか売るべきか分からない</li>
-        <li class="worry"><span class="wk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>親が元気なうちに、土地のことを整理しておきたい</li>
-        <li class="worry"><span class="wk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>賃貸や空き地の管理が、だんだん負担になってきた</li>
-        <li class="worry"><span class="wk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>空室が埋まらない／建物の老朽化が心配</li>
-        <li class="worry"><span class="wk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>相続人が複数いて、土地の話がまとまらない</li>
-      </ul>
-      <p class="worry-cta">ひとつでも当てはまったら、まずは<span class="em">無料相談</span>から。<span class="sub">どんな小さなことでも、地元の私たちにお聞かせください。</span></p>
-    </div>
-  </div>
-</section>
- 
-<!-- ============ MAIN BODY (2 columns) ============ -->
-<section class="section alt">
-  <div class="wrap">
-    <div class="stack">
- 
-        <!-- SERVICE -->
-        <div id="service" class="reveal">
-          <div class="sec-head">
-            <span class="sec-num">1</span>
-            <div>
-              <div class="sec-kicker">Service</div>
-              <h2 class="sec-title">サービス紹介</h2>
-            </div>
-          </div>
-          <p class="sec-sub">土地と暮らしに関わるご相談を、専門領域ごとに最適なかたちでサポートします。</p>
-          <div class="svc-grid">
-            <article class="svc-card">
-              <div class="svc-photo">
-                <img src="assets/svc_souzoku.png" loading="lazy" alt="相続相談" />
-                <span class="svc-badge bg-lime"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v9h14v-9"/><path d="M12 17c-1.6-1.2-3-2.2-3-3.6a1.6 1.6 0 0 1 3-.7 1.6 1.6 0 0 1 3 .7c0 1.4-1.4 2.4-3 3.6Z"/></svg></span>
-              </div>
-              <div class="svc-body">
-                <h3>相続相談</h3>
-                <p>“争続”にしないために。税理士・司法書士と連携し、土地の評価・分割・活用・納税までワンストップで。生前のご相談も歓迎です。</p>
-              </div>
-            </article>
-            <article class="svc-card">
-              <div class="svc-photo">
-                <img src="assets/svc_kanri.png" loading="lazy" alt="不動産管理" />
-                <span class="svc-badge bg-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"/></svg></span>
-              </div>
-              <div class="svc-body">
-                <h3>不動産管理</h3>
-                <p>空室対策から建物管理、入居者対応まで。オーナー様の手間を減らし、大切な資産の価値を守り続けます。「管理だけ」のご依頼も可能です。</p>
-              </div>
-            </article>
-            <article class="svc-card">
-              <div class="svc-photo">
-                <img src="assets/svc_baibai.png" loading="lazy" alt="売買・仲介" />
-                <span class="svc-badge bg-pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v9h5v-5h4v5h5v-9"/></svg></span>
-              </div>
-              <div class="svc-body">
-                <h3>売買・仲介</h3>
-                <p>土地・戸建・収益物件の売却も購入も。土木会社の視点で「その土地が本当に持つ価値」を見極め、納得の取引へ導きます。</p>
-              </div>
-            </article>
-          </div>
-        </div>
- 
-        <!-- STRENGTH -->
-        <div id="strength" class="strength-band reveal">
-          <div class="sec-head">
-            <span class="sec-num">2</span>
-            <div>
-              <div class="sec-kicker">Our Strength</div>
-              <h2 class="sec-title">いちれん不動産の強み</h2>
-            </div>
-          </div>
-          <p class="strength-lead">土木会社だからこそ、<br /><span class="hl">土地を深く理解している。</span></p>
-          <div class="strength-grid">
-            <article class="strength">
-              <div class="sicon"><svg viewBox="0 0 48 48" fill="none" stroke="var(--navy)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 22 24 9l15 13"/><path d="M13 21v17h22V21"/><path d="M24 22a4 4 0 0 0-4 4c0 2.4 4 5 4 5s4-2.6 4-5a4 4 0 0 0-4-4Z" stroke="#10b89e"/><path d="M28 22l2-1.5" stroke="#10b89e"/></svg></div>
-              <h4>土地活用の視点</h4>
-              <p>建物だけでなく、地盤・造成・周辺環境まで。土木・建築の知見を、土地そのものの提案に活かします。</p>
-            </article>
-            <article class="strength">
-              <div class="sicon"><svg viewBox="0 0 48 48" fill="none" stroke="var(--navy)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="16" r="5"/><path d="M14 38c0-5.5 4.5-9 10-9s10 3.5 10 9"/><circle cx="11" cy="19" r="4"/><path d="M5 36c0-4 2.2-6.5 6-7"/><circle cx="37" cy="19" r="4"/><path d="M43 36c0-4-2.2-6.5-6-7"/></svg></div>
-              <h4>地域密着20年</h4>
-              <p>地元の地主様・オーナー様との長年の信頼関係。顔の見える距離で、末永くお付き合いします。</p>
-            </article>
-            <article class="strength">
-              <div class="sicon"><svg viewBox="0 0 48 48" fill="none" stroke="var(--navy)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 22 24 9l15 13"/><path d="M13 21v17h22V21"/><path d="M24 21c-1.8-1.5-4-2.6-4-5a2.4 2.4 0 0 1 4-1.2 2.4 2.4 0 0 1 4 1.2c0 2.4-2.2 3.5-4 5Z" stroke="#10b89e" fill="none"/></svg></div>
-              <h4>ワンストップ対応</h4>
-              <p>相続・管理・売却・活用まで一貫対応。窓口がひとつだから、たらい回しの心配がありません。</p>
-            </article>
-            <article class="strength">
-              <div class="sicon"><svg viewBox="0 0 48 48" fill="none" stroke="var(--navy)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12h22a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H20l-8 6v-6h-2a4 4 0 0 1-4-4V16a4 4 0 0 1 4-4Z"/><path d="M21 18c-1.4-1.1-3-2-3-3.7a1.8 1.8 0 0 1 3-.9 1.8 1.8 0 0 1 3 .9c0 1.7-1.6 2.6-3 3.7Z" transform="translate(0 2)"/></svg></div>
-              <h4>オーナー目線</h4>
-              <p>売って終わりにしない。資産価値を最大化する提案を、常にオーナー様の立場で考えます。</p>
-            </article>
-          </div>
-        </div>
- 
-        <!-- FAQ -->
-        <div id="faq" class="faq reveal">
-          <h3><span class="n">3</span>よくあるご質問</h3>
-          <div class="faq-list">
-            <div class="faq-item">
-              <button class="faq-q">相続が発生する前でも相談できますか？<span class="tog"></span></button>
-              <div class="faq-a"><p>はい、生前のご相談を多くいただいています。早めにご相談いただくほど、選択肢を整理しやすく、ご家族にとって最良の形を準備できます。</p></div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-q">管理だけ、一部だけのご依頼は可能ですか？<span class="tog"></span></button>
-              <div class="faq-a"><p>もちろん可能です。賃貸管理のみ、建物管理のみなど、必要な部分だけのご依頼にも柔軟に対応いたします。</p></div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-q">土地を売るべきか、活用すべきか迷っています。<span class="tog"></span></button>
-              <div class="faq-a"><p>土木・建築の知見をもとに、売却・活用それぞれのシミュレーションをご提示します。数字を見ながら、最適な選択を一緒に考えます。</p></div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-q">遠方に住んでいても相談できますか？<span class="tog"></span></button>
-              <div class="faq-a"><p>はい。オンライン相談やお電話・LINEに対応しています。離れて暮らすご実家の土地のご相談も、お気軽にどうぞ。</p></div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-q">しつこく営業されませんか？費用は？<span class="tog"></span></button>
-              <div class="faq-a"><p>ご相談・お見積りは無料、秘密厳守です。こちらから無理な営業のご連絡をすることはありません。まずはお気軽にお問い合わせください。</p></div>
-            </div>
-          </div>
-        </div>
- 
-        <div class="cta-row">
-        <!-- CTA panel -->
-        <div id="cta" class="cta-panel reveal">
-          <h3>まずは無料で、ご相談ください。</h3>
-          <p>土地や相続の悩みは、早めの相談が安心への第一歩。「うちの場合はどうなる？」に、地元の私たちがお答えします。</p>
-          <div class="cta-actions">
-            <a class="btn btn-pink btn-lg btn-block" href="mailto:1ren_fudosan@ichirenfudosan.com?subject=%E7%84%A1%E6%96%99%E7%9B%B8%E8%AB%87%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7.5l9 6 9-6"/></svg> 無料相談する <svg class="arr ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a class="btn btn-pink-ghost btn-block" href="tel:0462595365"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.5 11.5 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.5 11.5 0 0 0 .58 3.6 1 1 0 0 1-.25 1Z"/></svg> 電話で相談する</a>
-          </div>
-          <div class="cta-checks">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>相談無料</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>秘密厳守</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>オンライン相談OK</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>しつこい営業なし</span>
-          </div>
-        </div>
- 
-        <!-- LINE panel -->
-        <div id="line" class="line-panel reveal">
-          <h3><span class="line-logo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.9 3 2.75 6.34 2.75 10.46c0 3.69 3.29 6.78 7.74 7.37.3.06.71.2.81.46.09.24.06.6.03.85l-.13.79c-.04.23-.18.91.8.5.98-.42 5.3-3.12 7.23-5.34 1.33-1.46 1.97-2.95 1.97-4.63C21.2 6.34 17.06 3 12 3Z"/></svg></span>LINEで、気軽に相談。</h3>
-          <p>友だち追加で<span class="gift">「相続・土地活用 まるわかりガイド（PDF）」</span>をプレゼント。チャットで質問するだけでもOKです。</p>
-          <div class="line-actions">
-            <a class="btn btn-line btn-lg btn-block" href="https://lin.ee/W9f8FJ3"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.9 3 2.75 6.34 2.75 10.46c0 3.69 3.29 6.78 7.74 7.37.3.06.71.2.81.46.09.24.06.6.03.85l-.13.79c-.04.23-.18.91.8.5.98-.42 5.3-3.12 7.23-5.34 1.33-1.46 1.97-2.95 1.97-4.63C21.2 6.34 17.06 3 12 3Z"/></svg> 友だち追加する</a>
-            <a class="btn btn-ghost btn-block" href="https://lin.ee/W9f8FJ3"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><path d="M14 14h2v2M18 14h2M14 18h2v2M20 18v2M18 20h2"/></svg> QRコードを見る</a>
-          </div>
-          <div class="line-checks">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>気軽に質問できる</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>最新情報をお届け</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>相談予約も簡単</span>
-          </div>
-        </div>
- 
-        </div>
- 
-    </div>
-  </div>
-</section>
- 
-</main>
- 
-<!-- ============ FOOTER ============ -->
-<footer class="site-footer" id="company">
-  <div class="wrap">
-    <div class="foot-top">
-      <div class="foot-brand">
-        <div class="fb">
-          <span class="foot-mark"><img src="assets/logo_mark_hd.png" alt="いちれん不動産" /></span>
-          <span><b>いちれん不動産</b><span class="en">ICHIREN REAL ESTATE</span></span>
-        </div>
-        <p>土木会社の知見を活かし、売却・管理・相続・土地活用までワンストップでサポートする、地域密着の不動産会社です。</p>
-      </div>
-      <nav class="foot-nav">
-        <a href="#service">サービス</a>
-        <a href="#strength">強み</a>
-        <a href="#faq">よくあるご質問</a>
-        <a href="#company">会社概要</a>
-        <a href="#top">お知らせ</a>
-        <a href="recruit.html">採用情報</a>
-      </nav>
-      <div class="foot-contact">
-        <a class="tel" href="tel:0462595365"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.5 11.5 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.5 11.5 0 0 0 .58 3.6 1 1 0 0 1-.25 1Z"/></svg>046-259-5365</a>
-        <small>受付時間 ｜ 9:00〜18:00（土日祝も対応）</small>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>© 2026 いちれん不動産（ICHIREN REAL ESTATE）</span>
-      <span>宅地建物取引業免許 ｜ プライバシーポリシー ｜ 特定商取引法に基づく表記</span>
-    </div>
-  </div>
-</footer>
- 
-<!-- sticky mobile action bar -->
-<div class="mobile-bar">
-  <a class="m-tel" href="tel:0462595365"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.5 11.5 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.5 11.5 0 0 0 .58 3.6 1 1 0 0 1-.25 1Z"/></svg>電話</a>
-  <a class="m-line" href="https://lin.ee/W9f8FJ3"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.9 3 2.75 6.34 2.75 10.46c0 3.69 3.29 6.78 7.74 7.37.3.06.71.2.81.46.09.24.06.6.03.85l-.13.79c-.04.23-.18.91.8.5.98-.42 5.3-3.12 7.23-5.34 1.33-1.46 1.97-2.95 1.97-4.63C21.2 6.34 17.06 3 12 3Z"/></svg>LINE</a>
-  <a class="m-cta" href="mailto:1ren_fudosan@ichirenfudosan.com?subject=%E7%84%A1%E6%96%99%E7%9B%B8%E8%AB%87%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">無料相談する</a>
-</div>
- 
-<script>
-  // mobile drawer
-  const drawer=document.getElementById('drawer');
-  document.getElementById('menuBtn').addEventListener('click',()=>drawer.classList.add('open'));
-  document.getElementById('drawerClose').addEventListener('click',()=>drawer.classList.remove('open'));
-  drawer.addEventListener('click',e=>{if(e.target===drawer)drawer.classList.remove('open');});
-  drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>drawer.classList.remove('open')));
- 
-  // FAQ accordion
-  document.querySelectorAll('.faq-q').forEach(q=>{
-    q.addEventListener('click',()=>{
-      const item=q.closest('.faq-item');
-      const a=item.querySelector('.faq-a');
-      const open=item.classList.contains('open');
-      if(open){item.classList.remove('open');a.style.maxHeight=null;}
-      else{item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}
-    });
-  });
- 
-  // reveal on scroll
-  const io=new IntersectionObserver((es)=>{
-    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-  },{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-</script>
- 
-</div>
-<script>
-(function(){
-  var BASE = 1280;
-  var wrap = document.getElementById('pcwrap');
-  function fit(){
-    var w = document.documentElement.clientWidth || window.innerWidth;
-    var s = w / BASE;
-    wrap.style.transform = 'scale(' + s + ')';
-    document.body.style.height = (wrap.offsetHeight * s) + 'px';
-  }
-  window.addEventListener('resize', fit);
-  window.addEventListener('load', fit);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
-  fit();
-  setTimeout(fit, 300); setTimeout(fit, 900); setTimeout(fit, 1800);
-})();
-</script>
-</body>
-</html>
+@media(max-width:760px){
+  .worry-list{grid-template-columns:1fr;}
+  .worries-band{padding:34px 20px;}
+}
+
+@media(prefers-reduced-motion:no-preference){
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+}
