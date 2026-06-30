@@ -160,6 +160,10 @@
     .dl .row{grid-template-columns:1fr;}
     .dl dt{border-bottom:1px solid var(--line);}
     .stat-grid{grid-template-columns:1fr;}
+    .chart-foot .big{display:block;text-align:center;width:100%;}
+    .chart-foot .big .big-val{display:block;margin-top:4px;}
+    .chart-foot .note{display:block;text-align:center;width:100%;}
+    .chart-foot .note .note-br{display:block;}
   }
   @media (prefers-reduced-motion:no-preference){
     .bar,.seg{animation:rise .9s cubic-bezier(.2,.8,.25,1) both;}
@@ -193,8 +197,8 @@
       <div class="chart-card">
         <svg id="barChart" viewBox="0 0 920 420" role="img" aria-label="売上高の推移グラフ"></svg>
         <div class="chart-foot">
-          <span class="big">R6年度（2024年度）売上高&nbsp;<b>6.33億円</b></span>
-          <span class="note">設立年度（H26）比 約12倍。設立以来、成長を継続しています。</span>
+          <span class="big">R6年度（2024年度）売上高<b class="big-val">6.33億円</b></span>
+          <span class="note">設立年度（H26）比 約12倍。<span class="note-br">設立以来、成長を継続しています。</span></span>
         </div>
       </div>
     </div>
@@ -288,12 +292,12 @@
     <p class="name">一蓮建設株式会社</p>
     <p class="en-name">Ichiren Construction</p>
     <p class="addr">〒243-0801　神奈川県厚木市妻田東3-39-5 アパートメントスペースⅠ 103　／　TEL <a href="tel:046-259-5604" style="color:#fff;text-decoration:none;">046-259-5604</a></p>
-    <p class="addr" style="margin-top:4px;">Mail：<a href="/cdn-cgi/l/email-protection#274841414e4442094e444f4e55424967404a464e4b0944484a" style="color:inherit;text-decoration:underline;text-underline-offset:3px;"><span class="__cf_email__" data-cfemail="7c131a1a151f1952151f14150e19123c1b111d1510521f1311">[email&#160;protected]</span></a></p>
+    <p class="addr" style="margin-top:4px;">Mail：<a href="mailto:office.ichiren@gmail.com" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">office.ichiren@gmail.com</a></p>
     <p style="margin-top:20px;"><a href="pc.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px;font-size:13px;opacity:.85;">← いちれん不動産トップへ戻る</a></p>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 (function(){
   var NS="http://www.w3.org/2000/svg";
   function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}

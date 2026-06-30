@@ -207,7 +207,7 @@ ul{margin:0;padding:0;list-style:none;}
 .faq-item{border-bottom:1px solid var(--line);}
 .faq-q{display:flex;align-items:center;gap:14px;width:100%;background:none;border:0;cursor:pointer;
   text-align:left;padding:18px 2px;font-family:var(--font-jp);font-weight:700;font-size:15px;color:var(--ink);}
-.faq-qt{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:clamp(11px,3.6vw,15px);min-width:0;}
+.faq-qt{white-space:nowrap;overflow:hidden;flex:1 1 auto;min-width:0;font-size:15px;}
 .faq-q .tog{margin-left:auto;width:24px;height:24px;flex:none;position:relative;color:var(--teal-deep);}
 .faq-q .tog::before,.faq-q .tog::after{content:"";position:absolute;background:currentColor;border-radius:2px;
   left:50%;top:50%;transition:transform .25s ease,opacity .25s ease;}
