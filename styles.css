@@ -118,21 +118,21 @@ ul{margin:0;padding:0;list-style:none;}
 .hero-img{width:112%;max-width:none;height:auto;display:block;margin-left:-6%;}
 .blobimg{
   position:relative;aspect-ratio:1.06/1;width:100%;
-  -webkit-mask:url("shapes/shape_03.png") center/contain no-repeat;
-  mask:url("shapes/shape_03.png") center/contain no-repeat;
+  -webkit-mask:url("shape_03.png") center/contain no-repeat;
+  mask:url("shape_03.png") center/contain no-repeat;
 }
 .blobimg img{width:100%;height:100%;object-fit:cover;}
 .hero-media .ring{position:absolute;inset:-3% -3%;
-  background:url("shapes/shape_03.png") center/contain no-repeat;opacity:.0;}
+  background:url("shape_03.png") center/contain no-repeat;opacity:.0;}
 
 /* decorative scatter */
 .deco{position:absolute;pointer-events:none;z-index:1;user-select:none;}
-.deco.d-dotpink{width:120px;top:6%;right:20%;background:url("shapes/shape_22.png") center/contain no-repeat;height:120px;opacity:.9;}
-.deco.d-dotyellow{width:120px;bottom:14%;right:3%;background:url("shapes/shape_21.png") center/contain no-repeat;height:120px;}
-.deco.d-sparkpink{width:46px;height:46px;top:24%;right:6%;background:url("shapes/shape_35.png") center/contain no-repeat;}
-.deco.d-sparkteal{width:40px;height:40px;bottom:30%;left:46%;background:url("shapes/shape_34.png") center/contain no-repeat;}
-.deco.d-blobyellow{width:130px;height:130px;bottom:6%;left:40%;background:url("shapes/shape_16.png") center/contain no-repeat;opacity:.85;}
-.deco.d-blobpink{width:30px;height:30px;top:54%;left:40%;background:url("shapes/shape_15.png") center/contain no-repeat;}
+.deco.d-dotpink{width:120px;top:6%;right:20%;background:url("shape_22.png") center/contain no-repeat;height:120px;opacity:.9;}
+.deco.d-dotyellow{width:120px;bottom:14%;right:3%;background:url("shape_21.png") center/contain no-repeat;height:120px;}
+.deco.d-sparkpink{width:46px;height:46px;top:24%;right:6%;background:url("shape_35.png") center/contain no-repeat;}
+.deco.d-sparkteal{width:40px;height:40px;bottom:30%;left:46%;background:url("shape_34.png") center/contain no-repeat;}
+.deco.d-blobyellow{width:130px;height:130px;bottom:6%;left:40%;background:url("shape_16.png") center/contain no-repeat;opacity:.85;}
+.deco.d-blobpink{width:30px;height:30px;top:54%;left:40%;background:url("shape_15.png") center/contain no-repeat;}
 
 /* ---------- Section scaffolding ---------- */
 .section{padding:104px 0;position:relative;}
