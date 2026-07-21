@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LP ワイヤーフレーム ｜ いちれん不動産</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#2b2b2b;
+    --line:#3a3a3a;
+    --soft:#9aa0a6;
+    --fill:#e9eaec;
+    --fill2:#dfe1e4;
+    --paper:#fbfbf9;
+    --canvas:#eceae5;
+    --accent:#123b7a;     /* navy (brand) — used sparingly */
+    --accent2:#19c4ab;    /* teal (brand) */
+    --hand:"Kalam",cursive;
+    --label:"Zen Kaku Gothic New",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;background:var(--canvas);color:var(--ink);
+    font-family:var(--label);
+    background-image:
+      linear-gradient(rgba(0,0,0,.035) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(0,0,0,.035) 1px,transparent 1px);
+    background-size:26px 26px;
+  }
+
+  /* ---------- page chrome ---------- */
+  .doc-head{max-width:1480px;margin:0 auto;padding:44px 40px 8px;}
+  .doc-head .tag{font-family:var(--hand);font-weight:700;color:var(--accent);
+    font-size:16px;letter-spacing:.04em;transform:rotate(-1.2deg);display:inline-block;}
+  .doc-head h1{font-size:34px;font-weight:900;margin:6px 0 0;letter-spacing:.02em;}
+  .doc-head p{margin:8px 0 0;color:#6b7178;font-size:14px;max-width:60em;line-height:1.8;}
+
+  /* legend */
+  .legend{display:flex;flex-wrap:wrap;gap:18px 26px;align-items:center;
+    max-width:1480px;margin:20px auto 0;padding:14px 40px;}
+  .legend .lg{display:flex;align-items:center;gap:9px;font-size:12.5px;color:#5b6066;font-family:var(--hand);font-weight:700;}
+  .lg .sw{width:34px;height:20px;border:1.5px solid var(--line);border-radius:4px;}
+  .lg .sw.fill{background:var(--fill);}
+  .lg .sw.img{background:
+      linear-gradient(45deg,transparent 47%,var(--soft) 47% 53%,transparent 53%),
+      linear-gradient(-45deg,transparent 47%,var(--soft) 47% 53%,transparent 53%),var(--fill);}
+  .lg .sw.btn{background:#fff;border-style:solid;border-radius:999px;border-color:var(--accent);}
+  .lg .sw.txt{border:none;height:auto;width:34px;display:flex;flex-direction:column;gap:3px;}
+  .lg .sw.txt i{display:block;height:4px;border-radius:2px;background:var(--soft);}
+  .lg .sw.txt i:last-child{width:62%;}
+
+  /* ---------- canvas of frames ---------- */
+  .board{max-width:1480px;margin:6px auto 90px;padding:18px 40px 0;
+    display:grid;grid-template-columns:1fr 360px;gap:54px;align-items:start;}
+  @media(max-width:1180px){.board{grid-template-columns:1fr;gap:64px;}}
+
+  .frame-wrap{position:relative;}
+  .frame-cap{font-family:var(--hand);font-weight:700;font-size:18px;color:var(--ink);
+    display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .frame-cap .dot{width:10px;height:10px;border-radius:50%;background:var(--accent2);}
+  .frame-cap .sz{font-family:var(--label);font-weight:500;font-size:12px;color:var(--soft);
+    border:1px solid #cfd2d6;border-radius:999px;padding:2px 10px;}
+
+  /* device frames */
+  .pc{border:2.5px solid var(--line);border-radius:14px;background:var(--paper);
+    box-shadow:8px 10px 0 rgba(40,40,40,.10);overflow:hidden;}
+  .pc .browserbar{height:38px;background:#f0f0ee;border-bottom:2px solid var(--line);
+    display:flex;align-items:center;gap:7px;padding:0 14px;}
+  .pc .browserbar .b{width:11px;height:11px;border-radius:50%;border:1.5px solid var(--line);background:#fff;}
+  .pc .browserbar .url{flex:1;height:18px;margin-left:10px;border:1.5px solid #cdd0d4;border-radius:999px;
+    background:#fff;display:flex;align-items:center;padding:0 12px;font-size:10px;color:var(--soft);font-family:var(--hand);}
+
+  .sp{width:360px;border:2.5px solid var(--line);border-radius:34px;background:var(--paper);padding:12px 10px;
+    box-shadow:8px 10px 0 rgba(40,40,40,.10);position:relative;}
+  .sp .notch{width:120px;height:20px;background:var(--line);border-radius:0 0 14px 14px;margin:0 auto 8px;}
+  .sp .screen{border:1.5px solid #d2d5d9;border-radius:22px;overflow:hidden;background:#fff;}
+
+  /* ---------- wireframe primitives ---------- */
+  .wf{padding:18px 20px;}
+  .wf + .wf{border-top:1.5px dashed #c7cbd0;}
+  .pc .wf{padding:26px 30px;}
+  .secband{position:relative;}
+
+  /* section tab label (annotation) */
+  .stab{position:absolute;left:-2px;top:-2px;font-family:var(--hand);font-weight:700;font-size:11.5px;
+    background:var(--accent);color:#fff;padding:3px 10px;border-radius:0 0 9px 0;letter-spacing:.03em;z-index:3;}
+  .pc .stab{font-size:12.5px;}
+
+  .row{display:flex;gap:14px;align-items:center;}
+  .between{justify-content:space-between;}
+  .col{display:flex;flex-direction:column;}
+  .center{align-items:center;text-align:center;}
+  .wrapg{flex-wrap:wrap;}
+
+  .box{background:var(--fill);border:1.5px solid #c4c8cd;border-radius:7px;}
+  .box.solid{background:var(--fill2);}
+  .img{position:relative;background:var(--fill);border:1.5px solid #c4c8cd;border-radius:7px;overflow:hidden;}
+  .img::before,.img::after{content:"";position:absolute;inset:0;}
+  .img::before{background:linear-gradient(45deg,transparent calc(50% - 1px),var(--soft) calc(50% - 1px) calc(50% + 1px),transparent calc(50% + 1px));}
+  .img::after{background:linear-gradient(-45deg,transparent calc(50% - 1px),var(--soft) calc(50% - 1px) calc(50% + 1px),transparent calc(50% + 1px));}
+  .img .imt{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;
+    background:rgba(255,255,255,.85);font-family:var(--hand);font-weight:700;font-size:11px;color:#6b7178;
+    padding:2px 9px;border-radius:5px;}
+
+  /* text line bars */
+  .t{height:9px;border-radius:5px;background:#c7cbd0;}
+  .t.lg{height:13px;background:#aeb3b9;}
+  .t.xl{height:20px;background:#9aa0a6;border-radius:6px;}
+  .t.sm{height:7px;background:#d3d6da;}
+  .w90{width:90%;}.w80{width:80%;}.w70{width:70%;}.w60{width:60%;}.w50{width:50%;}.w40{width:40%;}.w30{width:30%;}.w100{width:100%;}
+  .lines{display:flex;flex-direction:column;gap:8px;}
+
+  .pill{border:1.5px solid #b9bdc3;border-radius:999px;height:26px;display:inline-flex;align-items:center;
+    gap:7px;padding:0 13px;font-size:11px;color:#70757b;font-family:var(--hand);font-weight:700;background:#fff;}
+  .pill .ic{width:13px;height:13px;border-radius:50%;border:1.5px solid #b9bdc3;}
+
+  .btn{border:1.8px solid var(--accent);color:var(--accent);background:#fff;border-radius:999px;
+    height:40px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 20px;
+    font-family:var(--hand);font-weight:700;font-size:13px;}
+  .btn.fill{background:var(--accent);color:#fff;}
+  .btn.teal{border-color:var(--accent2);color:#0c7a6a;}
+  .btn.teal.fill{background:var(--accent2);color:#08382f;border-color:var(--accent2);}
+  .btn.ghost{border-color:#b9bdc3;color:#70757b;}
+  .btn.sm{height:32px;font-size:11px;padding:0 14px;}
+  .btn.block{display:flex;width:100%;}
+
+  .circle{border-radius:50%;background:var(--fill);border:1.5px solid #c4c8cd;flex:none;
+    display:grid;place-items:center;}
+  .circle .q{font-family:var(--hand);font-weight:700;color:#9aa0a6;font-size:14px;}
+  .square{border-radius:9px;background:var(--fill);border:1.5px solid #c4c8cd;flex:none;}
+
+  .label{font-family:var(--hand);font-weight:700;font-size:12px;color:#8a9097;}
+  .num{font-family:var(--hand);font-weight:700;font-size:13px;color:var(--accent);
+    border:1.6px solid var(--accent);border-radius:50%;width:26px;height:26px;display:grid;place-items:center;flex:none;}
+
+  .hamb{display:flex;flex-direction:column;gap:3px;}
+  .hamb i{width:20px;height:2.4px;background:var(--line);border-radius:2px;}
+
+  /* sticky bar (mobile) */
+  .stickybar{display:flex;gap:6px;padding:8px;background:#f3f3f1;border-top:2px solid var(--line);}
+  .stickybar .btn{flex:1;height:36px;}
+
+  /* callout annotations */
+  .note{position:absolute;font-family:var(--hand);font-weight:700;font-size:12.5px;color:var(--accent);
+    line-height:1.4;max-width:180px;z-index:5;}
+  .note .arrow{stroke:var(--accent);fill:none;stroke-width:2;}
+  .note.r{text-align:left;}
+  .note.l{text-align:right;}
+
+  .pc-notes{position:absolute;inset:0;pointer-events:none;}
+
+  /* footer of doc */
+  .doc-foot{max-width:1480px;margin:0 auto;padding:0 40px 70px;color:#9aa0a6;font-size:12px;font-family:var(--hand);font-weight:700;}
+
+  /* grid helpers for cards */
+  .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .card{border:1.5px solid #c4c8cd;border-radius:9px;background:#fff;padding:12px;}
+  .gap6{gap:6px;}.gap8{gap:8px;}.gap10{gap:10px;}.gap12{gap:12px;}.gap16{gap:16px;}
+  .mt6{margin-top:6px;}.mt8{margin-top:8px;}.mt10{margin-top:10px;}.mt12{margin-top:12px;}.mt16{margin-top:16px;}
+</style>
+</head>
+<body>
+
+<div class="doc-head">
+  <span class="tag">Wireframe ✎ low-fidelity</span>
+  <h1>いちれん不動産 LP ／ ワイヤーフレーム</h1>
+  <p>トップページの構成・情報設計を整理したローファイ・ワイヤーフレームです。左が PC（デスクトップ）、右がスマートフォンの画面構成。配色・写真・装飾は省き、要素の配置と優先順位のみを表しています。</p>
+</div>
+
+<div class="legend">
+  <span class="lg"><span class="sw txt"><i></i><i></i></span>テキスト</span>
+  <span class="lg"><span class="sw img"></span>画像 / 写真</span>
+  <span class="lg"><span class="sw fill"></span>ブロック要素</span>
+  <span class="lg"><span class="sw btn"></span>ボタン / CTA</span>
+  <span class="lg"><span class="sw" style="border-color:#123b7a;background:#123b7a;"></span>注釈・セクション名</span>
+</div>
+
+<div class="board">
+
+  <!-- ============================= PC ============================= -->
+  <div class="frame-wrap">
+    <div class="frame-cap"><span class="dot"></span>PC ／ デスクトップ<span class="sz">1280px+</span></div>
+    <div class="pc">
+      <div class="browserbar">
+        <span class="b"></span><span class="b"></span><span class="b"></span>
+        <span class="url">https://ichiren-fudosan.jp</span>
+      </div>
+
+      <!-- HEADER -->
+      <div class="wf secband">
+        <span class="stab">① ヘッダー（固定）</span>
+        <div class="row between" style="margin-top:6px;">
+          <div class="row gap10">
+            <div class="square" style="width:34px;height:34px;"></div>
+            <div class="lines"><div class="t lg w100" style="width:110px;"></div><div class="t sm" style="width:80px;"></div></div>
+          </div>
+          <div class="row gap16">
+            <div class="t w100" style="width:54px;"></div>
+            <div class="t w100" style="width:40px;"></div>
+            <div class="t w100" style="width:80px;"></div>
+            <div class="t w100" style="width:64px;"></div>
+            <div class="t w100" style="width:64px;"></div>
+          </div>
+          <div class="row gap8">
+            <span class="btn teal fill sm">無料相談</span>
+            <span class="btn sm ghost">LINE相談</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- HERO -->
+      <div class="wf secband" style="background:linear-gradient(180deg,#f4f6fa,#fbfbf9);">
+        <span class="stab">② ファーストビュー（FV）</span>
+        <div class="row" style="gap:30px;margin-top:10px;align-items:center;">
+          <div class="col" style="flex:1.05;">
+            <div class="t sm" style="width:90px;"></div>
+            <div class="lines mt12">
+              <div class="t xl w80"></div>
+              <div class="t xl w60"></div>
+            </div>
+            <div class="lines mt12">
+              <div class="t w90"></div>
+              <div class="t w70"></div>
+            </div>
+            <div class="row wrapg gap8 mt16">
+              <span class="pill"><span class="ic"></span>地域密着20年</span>
+              <span class="pill"><span class="ic"></span>相続実績多数</span>
+              <span class="pill"><span class="ic"></span>ワンストップ</span>
+            </div>
+            <div class="row gap10 mt16">
+              <span class="btn teal fill">無料相談する →</span>
+              <span class="btn">LINEで相談</span>
+            </div>
+          </div>
+          <div class="img" style="flex:.95;height:210px;"><span class="imt">メインビジュアル（街並み）</span></div>
+        </div>
+      </div>
+
+      <!-- SERVICE -->
+      <div class="wf secband alt" style="background:#f4f5f7;">
+        <span class="stab">③ サービス紹介</span>
+        <div class="row gap10" style="margin-top:8px;">
+          <span class="num">1</span>
+          <div class="lines"><div class="t sm" style="width:70px;"></div><div class="t lg" style="width:160px;"></div></div>
+        </div>
+        <div class="t w60 mt8" style="max-width:420px;"></div>
+        <div class="g3 mt16">
+          <div class="card col gap8">
+            <div class="img" style="height:84px;"><span class="imt">写真</span></div>
+            <div class="t lg w60 mt6"></div>
+            <div class="lines"><div class="t w100"></div><div class="t w80"></div></div>
+            <div class="t sm w40 mt6" style="color:var(--accent);"></div>
+          </div>
+          <div class="card col gap8">
+            <div class="img" style="height:84px;"><span class="imt">写真</span></div>
+            <div class="t lg w60 mt6"></div>
+            <div class="lines"><div class="t w100"></div><div class="t w80"></div></div>
+            <div class="t sm w40 mt6"></div>
+          </div>
+          <div class="card col gap8">
+            <div class="img" style="height:84px;"><span class="imt">写真</span></div>
+            <div class="t lg w60 mt6"></div>
+            <div class="lines"><div class="t w100"></div><div class="t w80"></div></div>
+            <div class="t sm w40 mt6"></div>
+          </div>
+        </div>
+        <div class="label mt8" style="text-align:center;">不動産管理 ／ 売買・仲介 ／ 相続相談</div>
+      </div>
+
+      <!-- STRENGTH -->
+      <div class="wf secband">
+        <span class="stab">④ 強み（土木会社の知見）</span>
+        <div class="row gap10" style="margin-top:8px;">
+          <span class="num">2</span>
+          <div class="lines"><div class="t sm" style="width:80px;"></div><div class="t lg" style="width:180px;"></div></div>
+        </div>
+        <div class="lines mt12" style="align-items:center;">
+          <div class="t xl w50" style="margin:0 auto;"></div>
+        </div>
+        <div class="g4 mt16">
+          <div class="card center col gap8" style="align-items:center;">
+            <div class="circle" style="width:44px;height:44px;"></div>
+            <div class="t lg w70"></div>
+            <div class="lines" style="width:100%;"><div class="t w100"></div><div class="t w80"></div></div>
+          </div>
+          <div class="card center col gap8" style="align-items:center;">
+            <div class="circle" style="width:44px;height:44px;"></div>
+            <div class="t lg w70"></div>
+            <div class="lines" style="width:100%;"><div class="t w100"></div><div class="t w80"></div></div>
+          </div>
+          <div class="card center col gap8" style="align-items:center;">
+            <div class="circle" style="width:44px;height:44px;"></div>
+            <div class="t lg w70"></div>
+            <div class="lines" style="width:100%;"><div class="t w100"></div><div class="t w80"></div></div>
+          </div>
+          <div class="card center col gap8" style="align-items:center;">
+            <div class="circle" style="width:44px;height:44px;"></div>
+            <div class="t lg w70"></div>
+            <div class="lines" style="width:100%;"><div class="t w100"></div><div class="t w80"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="wf secband" style="background:#f4f5f7;">
+        <span class="stab">⑤ よくあるご質問（FAQ）</span>
+        <div class="row gap10" style="margin-top:8px;">
+          <span class="num">3</span>
+          <div class="t lg" style="width:200px;"></div>
+        </div>
+        <div class="lines mt12" style="gap:10px;">
+          <div class="card row between"><div class="t w70"></div><div class="label">＋</div></div>
+          <div class="card row between"><div class="t w60"></div><div class="label">＋</div></div>
+          <div class="card row between"><div class="t w80"></div><div class="label">＋</div></div>
+          <div class="card row between"><div class="t w50"></div><div class="label">＋</div></div>
+        </div>
+      </div>
+
+      <!-- CTA + LINE -->
+      <div class="wf secband" style="background:#eef1f6;">
+        <span class="stab">⑥ CTA ／ LINE 訴求（2カラム）</span>
+        <div class="g2 mt12">
+          <div class="card col gap10" style="padding:18px;border-color:#b6c2d6;">
+            <div class="t lg w60"></div>
+            <div class="t w90"></div>
+            <span class="btn fill block" style="border-color:#d24b86;background:#d24b86;color:#fff;">無料相談する →</span>
+            <span class="btn block ghost">電話で相談する</span>
+            <div class="row gap10 mt6"><span class="label">✓相談無料</span><span class="label">✓秘密厳守</span><span class="label">✓オンラインOK</span></div>
+          </div>
+          <div class="card col gap10" style="padding:18px;border-color:#a7d8b6;">
+            <div class="t lg w60"></div>
+            <div class="t w90"></div>
+            <span class="btn fill block teal">友だち追加する</span>
+            <span class="btn block ghost">QRコードを見る</span>
+            <div class="row gap10 mt6"><span class="label">✓気軽に質問</span><span class="label">✓最新情報</span><span class="label">✓予約も簡単</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="wf secband" style="background:#e7e9ec;">
+        <span class="stab">⑦ フッター</span>
+        <div class="row between" style="margin-top:10px;align-items:flex-start;gap:24px;">
+          <div class="col gap8" style="flex:1.2;">
+            <div class="row gap8"><div class="square" style="width:28px;height:28px;"></div><div class="t lg" style="width:120px;"></div></div>
+            <div class="lines"><div class="t w90"></div><div class="t w70"></div></div>
+          </div>
+          <div class="col gap6" style="flex:.8;">
+            <div class="t sm w60"></div><div class="t sm w50"></div><div class="t sm w70"></div><div class="t sm w40"></div>
+          </div>
+          <div class="col gap8" style="flex:.9;">
+            <div class="t lg w80"></div>
+            <div class="t sm w60"></div>
+          </div>
+        </div>
+        <div class="t sm w100 mt12" style="opacity:.6;"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================= SP ============================= -->
+  <div class="frame-wrap">
+    <div class="frame-cap"><span class="dot"></span>SP ／ スマートフォン<span class="sz">375px</span></div>
+    <div class="sp">
+      <div class="notch"></div>
+      <div class="screen">
+
+        <!-- HEADER -->
+        <div class="wf secband">
+          <span class="stab">①</span>
+          <div class="row between" style="margin-top:4px;">
+            <div class="row gap8"><div class="square" style="width:26px;height:26px;"></div><div class="t lg" style="width:74px;"></div></div>
+            <div class="hamb"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+
+        <!-- HERO -->
+        <div class="wf secband" style="background:linear-gradient(180deg,#f4f6fa,#fbfbf9);">
+          <span class="stab">② FV</span>
+          <div class="col" style="margin-top:6px;">
+            <div class="t sm" style="width:70px;"></div>
+            <div class="lines mt10"><div class="t xl w90"></div><div class="t xl w60"></div></div>
+            <div class="lines mt10"><div class="t w100"></div><div class="t w80"></div></div>
+            <div class="row wrapg gap6 mt12">
+              <span class="pill"><span class="ic"></span>地域密着</span>
+              <span class="pill"><span class="ic"></span>相続実績</span>
+            </div>
+            <div class="img mt12" style="height:130px;"><span class="imt">メインビジュアル</span></div>
+            <div class="col gap8 mt12">
+              <span class="btn teal fill block">無料相談する →</span>
+              <span class="btn block">LINEで相談する</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SERVICE -->
+        <div class="wf secband" style="background:#f4f5f7;">
+          <span class="stab">③ サービス</span>
+          <div class="row gap8 mt6"><span class="num" style="width:22px;height:22px;font-size:11px;">1</span><div class="t lg" style="width:120px;"></div></div>
+          <div class="col gap10 mt12">
+            <div class="card col gap6">
+              <div class="img" style="height:74px;"><span class="imt">写真</span></div>
+              <div class="t lg w50 mt6"></div>
+              <div class="t w90"></div>
+              <div class="t sm w30 mt6"></div>
+            </div>
+            <div class="card col gap6">
+              <div class="img" style="height:74px;"><span class="imt">写真</span></div>
+              <div class="t lg w50 mt6"></div>
+              <div class="t w90"></div>
+              <div class="t sm w30 mt6"></div>
+            </div>
+            <div class="card col gap6">
+              <div class="img" style="height:74px;"><span class="imt">写真</span></div>
+              <div class="t lg w50 mt6"></div>
+              <div class="t w90"></div>
+              <div class="t sm w30 mt6"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STRENGTH -->
+        <div class="wf secband">
+          <span class="stab">④ 強み</span>
+          <div class="row gap8 mt6"><span class="num" style="width:22px;height:22px;font-size:11px;">2</span><div class="t lg" style="width:130px;"></div></div>
+          <div class="t xl w80 mt12" style="margin-left:auto;margin-right:auto;"></div>
+          <div class="g2 mt12">
+            <div class="card center col gap6" style="align-items:center;"><div class="circle" style="width:36px;height:36px;"></div><div class="t lg w70"></div><div class="t w90"></div></div>
+            <div class="card center col gap6" style="align-items:center;"><div class="circle" style="width:36px;height:36px;"></div><div class="t lg w70"></div><div class="t w90"></div></div>
+            <div class="card center col gap6" style="align-items:center;"><div class="circle" style="width:36px;height:36px;"></div><div class="t lg w70"></div><div class="t w90"></div></div>
+            <div class="card center col gap6" style="align-items:center;"><div class="circle" style="width:36px;height:36px;"></div><div class="t lg w70"></div><div class="t w90"></div></div>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="wf secband" style="background:#f4f5f7;">
+          <span class="stab">⑤ FAQ</span>
+          <div class="row gap8 mt6"><span class="num" style="width:22px;height:22px;font-size:11px;">3</span><div class="t lg" style="width:120px;"></div></div>
+          <div class="col gap8 mt12">
+            <div class="card row between"><div class="t w70"></div><div class="label">＋</div></div>
+            <div class="card row between"><div class="t w60"></div><div class="label">＋</div></div>
+            <div class="card row between"><div class="t w80"></div><div class="label">＋</div></div>
+            <div class="card row between"><div class="t w50"></div><div class="label">＋</div></div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="wf secband" style="background:#eef1f6;">
+          <span class="stab">⑥ CTA</span>
+          <div class="card col gap8 mt6" style="border-color:#b6c2d6;">
+            <div class="t lg w70"></div>
+            <div class="t w90"></div>
+            <span class="btn fill block" style="border-color:#d24b86;background:#d24b86;color:#fff;">無料相談する →</span>
+            <span class="btn block ghost">電話で相談する</span>
+          </div>
+          <div class="card col gap8 mt10" style="border-color:#a7d8b6;">
+            <div class="t lg w70"></div>
+            <div class="t w90"></div>
+            <span class="btn fill block teal">友だち追加する</span>
+            <span class="btn block ghost">QRコードを見る</span>
+          </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="wf secband" style="background:#e7e9ec;">
+          <span class="stab">⑦ フッター</span>
+          <div class="col gap8 mt6" style="align-items:center;text-align:center;">
+            <div class="row gap8" style="justify-content:center;"><div class="square" style="width:24px;height:24px;"></div><div class="t lg" style="width:90px;"></div></div>
+            <div class="t w90"></div>
+            <div class="t w70"></div>
+            <div class="row gap8 mt6 wrapg" style="justify-content:center;"><div class="t sm" style="width:50px;"></div><div class="t sm" style="width:50px;"></div><div class="t sm" style="width:50px;"></div></div>
+          </div>
+        </div>
+
+        <!-- STICKY BAR -->
+        <div class="stickybar">
+          <span class="btn sm ghost">電話</span>
+          <span class="btn sm ghost teal">LINE</span>
+          <span class="btn sm fill" style="flex:1.6;border-color:#d24b86;background:#d24b86;color:#fff;">無料相談する</span>
+        </div>
+
+      </div>
+    </div>
+    <div class="note" style="position:relative;margin-top:16px;max-width:none;color:#6b7178;font-size:12px;">
+      ⌂ 画面下部に「電話 ／ LINE ／ 無料相談」の固定アクションバーを常時表示（スマホのみ）
+    </div>
+  </div>
+
+</div>
+
+<div class="doc-foot">いちれん不動産 ｜ LP ワイヤーフレーム（low-fi）— 既存トップページの構成をベースに作成。注釈の番号 ①〜⑦ は PC・SP で対応しています。</div>
+
+</body>
+</html>

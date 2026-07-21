@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>いちれん不動産 ｜ その土地を、次の世代へ。</title>
+<meta name="description" content="土木会社の知見をもつ、地域密着の不動産会社。相続・管理・売却・土地活用までワンストップ。相談無料・秘密厳守。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy:   '#0e2c5e',
+          ink:    '#0d1526',
+          teal:   '#0fd6c2',
+          pink:   '#ff2e8b',
+          lime:   '#bdf000',
+          cobalt: '#2b59ff',
+          violet: '#7a5bff',
+          mist:   '#f4f7fb',
+        },
+        fontFamily: {
+          display: ['Outfit', '"Noto Sans JP"', 'sans-serif'],
+          jp: ['"Noto Sans JP"', 'sans-serif'],
+        },
+        borderRadius: { '4xl': '2rem', '5xl': '2.75rem', '6xl': '3.5rem' },
+        boxShadow: {
+          soft: '0 18px 50px -20px rgba(14,44,94,0.25)',
+          glow: '0 22px 60px -18px rgba(43,89,255,0.45)',
+          glowpink: '0 22px 60px -18px rgba(255,46,139,0.5)',
+        },
+        keyframes: {
+          floaty:   { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-16px)' } },
+          floatyx:  { '0%,100%': { transform: 'translateY(0) rotate(0deg)' }, '50%': { transform: 'translateY(-22px) rotate(7deg)' } },
+          blob:     { '0%,100%': { transform: 'scale(1) translate(0,0)' }, '33%': { transform: 'scale(1.12) translate(24px,-12px)' }, '66%': { transform: 'scale(.92) translate(-18px,14px)' } },
+          marquee:  { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
+          spinslow: { 'to': { transform: 'rotate(360deg)' } },
+        },
+        animation: {
+          floaty:  'floaty 6s ease-in-out infinite',
+          floatyx: 'floatyx 9s ease-in-out infinite',
+          blob:    'blob 16s ease-in-out infinite',
+          marquee: 'marquee 28s linear infinite',
+          spinslow:'spinslow 26s linear infinite',
+        },
+      },
+    },
+  };
+</script>
+<style type="text/tailwindcss">
+  @layer base{
+    html{ scroll-behavior:smooth; }
+    body{ font-family: theme('fontFamily.jp'); color: theme('colors.ink'); -webkit-font-smoothing:antialiased; }
+    h1,h2,h3,h4{ font-feature-settings:"palt"; }
+  }
+  @layer utilities{
+    .font-display{ font-family: theme('fontFamily.display'); }
+    .text-grad{ background-image:linear-gradient(100deg,#0fd6c2,#2b59ff 45%,#ff2e8b); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .glass{ background:rgba(255,255,255,.72); backdrop-filter:blur(14px) saturate(150%); }
+    .ring-grad{ background:linear-gradient(135deg,#0fd6c2,#2b59ff,#ff2e8b); }
+  }
+</style>
+<style>
+  /* scroll reveal via keyframe animation (holds end state with forwards) */
+  @keyframes revUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:none; } }
+  @keyframes revL  { from { opacity:0; transform:translateX(-34px); } to { opacity:1; transform:none; } }
+  @keyframes revR  { from { opacity:0; transform:translateX(34px); } to { opacity:1; transform:none; } }
+  .reveal   { opacity:0; }
+  .reveal-l { opacity:0; }
+  .reveal-r { opacity:0; }
+  .reveal.in   { animation: revUp .85s cubic-bezier(.2,.7,.3,1) forwards; }
+  .reveal-l.in { animation: revL .85s cubic-bezier(.2,.7,.3,1) forwards; }
+  .reveal-r.in { animation: revR .85s cubic-bezier(.2,.7,.3,1) forwards; }
+  /* failsafe: timers fire even if the animation timeline is paused (captures / lazy tabs) */
+  .reveal.shown, .reveal-l.shown, .reveal-r.shown { opacity:1 !important; transform:none !important; animation:none !important; }
+  .hl-teal{ background:linear-gradient(transparent 62%, rgba(15,214,194,.32) 62%); padding:0 .08em; -webkit-box-decoration-break:clone; box-decoration-break:clone; }
+  .faq-a{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .42s cubic-bezier(.2,.7,.3,1); }
+  .faq-a > div{ overflow:hidden; }
+  .faq-item.open .faq-a{ grid-template-rows:1fr; }
+  .faq-item.open .faq-plus{ transform:rotate(135deg); }
+  @media (prefers-reduced-motion: reduce){
+    .reveal,.reveal-l,.reveal-r{ opacity:1 !important; animation:none !important; }
+  }
+</style>
+</head>
+<body class="bg-white antialiased overflow-x-hidden">
+
+<!-- ============ HEADER ============ -->
+<header id="hdr" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-6">
+    <div id="hdrbar" class="flex items-center gap-6 h-20 transition-all duration-300">
+      <a href="#top" class="flex items-center gap-3 shrink-0">
+        <img src="assets/logo_mark_hd.png" alt="いちれん不動産" class="h-11 w-auto" />
+        <span class="leading-tight">
+          <b class="block font-display font-extrabold text-navy text-lg tracking-wide">いちれん不動産</b>
+          <span class="block text-[10px] font-semibold tracking-[0.24em] text-teal font-display">ICHIREN REAL ESTATE</span>
+        </span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-8 ml-6 text-[15px] font-semibold text-ink/80">
+        <a href="#service" class="relative hover:text-navy transition-colors">サービス</a>
+        <a href="#strength" class="relative hover:text-navy transition-colors">強み</a>
+        <a href="#faq" class="relative hover:text-navy transition-colors">よくあるご質問</a>
+        <a href="#company" class="relative hover:text-navy transition-colors">会社概要</a>
+        <a href="recruit.html" class="relative hover:text-navy transition-colors">採用情報</a>
+      </nav>
+      <div class="hidden lg:flex items-center gap-3 ml-auto shrink-0">
+        <a href="#line" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-display font-bold text-[14px] text-navy bg-white ring-1 ring-navy/12 hover:ring-navy/30 transition">LINEで相談</a>
+        <a href="#cta" class="group inline-flex items-center gap-2 px-6 py-3 rounded-full font-display font-bold text-[14px] text-white bg-pink shadow-glowpink hover:-translate-y-0.5 transition-transform">
+          無料相談する
+          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <button id="menuBtn" class="lg:hidden ml-auto w-11 h-11 rounded-xl ring-1 ring-navy/12 bg-white grid place-items-center" aria-label="メニュー">
+        <svg class="w-5 h-5 text-navy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- mobile menu -->
+<div id="drawer" class="fixed inset-0 z-[60] invisible opacity-0 transition-opacity duration-300">
+  <div class="absolute inset-0 bg-navy/40" data-close></div>
+  <div id="drawerPanel" class="absolute top-0 right-0 h-full w-[82vw] max-w-sm bg-white p-7 flex flex-col gap-1 translate-x-full transition-transform duration-300">
+    <button data-close class="self-end w-10 h-10 grid place-items-center text-navy text-3xl leading-none">×</button>
+    <a href="#service" class="py-4 border-b border-ink/10 font-bold text-lg text-ink" data-close>サービス</a>
+    <a href="#strength" class="py-4 border-b border-ink/10 font-bold text-lg text-ink" data-close>強み</a>
+    <a href="#faq" class="py-4 border-b border-ink/10 font-bold text-lg text-ink" data-close>よくあるご質問</a>
+    <a href="#company" class="py-4 border-b border-ink/10 font-bold text-lg text-ink" data-close>会社概要</a>
+    <a href="recruit.html" class="py-4 border-b border-ink/10 font-bold text-lg text-ink" data-close>採用情報</a>
+    <a href="#cta" data-close class="mt-6 inline-flex justify-center items-center gap-2 px-6 py-4 rounded-full font-display font-bold text-white bg-pink shadow-glowpink">無料相談する</a>
+    <a href="#line" data-close class="mt-2 inline-flex justify-center items-center gap-2 px-6 py-4 rounded-full font-display font-bold text-navy ring-1 ring-navy/15">LINEで相談する</a>
+  </div>
+</div>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="relative pt-36 md:pt-44 pb-24 md:pb-32 overflow-hidden">
+  <!-- animated vivid blobs -->
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute -top-24 -left-24 w-[34rem] h-[34rem] rounded-full bg-teal/20 blur-3xl animate-blob"></div>
+    <div class="absolute top-10 right-[-10rem] w-[36rem] h-[36rem] rounded-full bg-cobalt/15 blur-3xl animate-blob" style="animation-delay:-5s"></div>
+    <div class="absolute bottom-[-12rem] left-1/3 w-[30rem] h-[30rem] rounded-full bg-pink/15 blur-3xl animate-blob" style="animation-delay:-9s"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-[1.05fr_0.95fr] gap-16 lg:gap-10 items-center">
+    <!-- copy -->
+    <div>
+      <span class="reveal inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass ring-1 ring-navy/10 text-[12.5px] font-display font-bold tracking-wide text-navy">
+        <span class="w-2 h-2 rounded-full bg-teal animate-floaty"></span>
+        相続・管理・土地活用のことなら
+      </span>
+      <h1 class="reveal mt-6 font-display font-black text-navy tracking-tight leading-[1.18] text-[clamp(2.6rem,6vw,4.6rem)]" style="transition-delay:.08s">
+        その土地を、<br /><span class="text-grad">次の世代へ。</span>
+      </h1>
+      <p class="reveal mt-7 text-[17px] md:text-lg leading-[1.95] text-ink/65 font-medium max-w-xl" style="transition-delay:.16s">
+        先祖代々の土地、空き家、相続──。<br class="hidden sm:block" />
+        「誰に相談すればいいか分からない」を、土木会社の知見をもつ地域密着のいちれん不動産が解決します。
+      </p>
+
+      <ul class="reveal mt-8 flex flex-wrap gap-x-7 gap-y-3" style="transition-delay:.24s">
+        <li class="flex items-center gap-2.5 text-[14px] font-bold text-navy">
+          <span class="w-7 h-7 rounded-full bg-teal/15 grid place-items-center text-teal"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span>地域密着20年以上
+        </li>
+        <li class="flex items-center gap-2.5 text-[14px] font-bold text-navy">
+          <span class="w-7 h-7 rounded-full bg-cobalt/15 grid place-items-center text-cobalt"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span>相続のご相談多数
+        </li>
+        <li class="flex items-center gap-2.5 text-[14px] font-bold text-navy">
+          <span class="w-7 h-7 rounded-full bg-pink/15 grid place-items-center text-pink"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span>相談無料・秘密厳守
+        </li>
+      </ul>
+
+      <div class="reveal mt-10 flex flex-wrap items-center gap-4" style="transition-delay:.32s">
+        <a href="#cta" class="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-display font-bold text-white bg-pink shadow-glowpink hover:-translate-y-1 transition-transform">
+          無料で相談する
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#line" class="inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-display font-bold text-navy bg-white ring-1 ring-navy/12 hover:ring-navy/30 hover:-translate-y-1 transition">
+          <svg class="w-5 h-5 text-[#06c755]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.9 3 2.75 6.34 2.75 10.46c0 3.69 3.29 6.78 7.74 7.37.3.06.71.2.81.46.09.24.06.6.03.85l-.13.79c-.04.23-.18.91.8.5.98-.42 5.3-3.12 7.23-5.34 1.33-1.46 1.97-2.95 1.97-4.63C21.2 6.34 17.06 3 12 3Z"/></svg>
+          LINEで相談する
+        </a>
+      </div>
+      <p class="reveal mt-5 text-[13px] font-semibold text-ink/45 flex items-center gap-2" style="transition-delay:.4s">
+        <span class="w-4 h-4 rounded-full bg-teal/15 grid place-items-center text-teal"><svg class="w-2.5 h-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span>
+        しつこい営業は一切いたしません。
+      </p>
+    </div>
+
+    <!-- visual -->
+    <div class="reveal-r relative" style="transition-delay:.2s">
+      <div class="relative rounded-6xl p-[3px] ring-grad shadow-soft">
+        <div class="rounded-[3.35rem] bg-gradient-to-br from-mist to-white overflow-hidden">
+          <div class="relative aspect-[4/4.4] grid place-items-center">
+            <div class="absolute inset-0 bg-[radial-gradient(120%_90%_at_70%_10%,rgba(15,214,194,.18),transparent_55%),radial-gradient(120%_90%_at_20%_100%,rgba(255,46,139,.16),transparent_55%)]"></div>
+            <img src="assets/hero_full.png" alt="街並みのイメージ" class="relative w-[112%] max-w-none animate-floaty" />
+          </div>
+        </div>
+      </div>
+      <!-- floating glass cards -->
+      <div class="absolute -left-5 top-12 glass rounded-2xl shadow-soft ring-1 ring-white/60 px-4 py-3 flex items-center gap-3 animate-floaty">
+        <span class="w-9 h-9 rounded-xl bg-lime grid place-items-center text-navy"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v9h14v-9"/></svg></span>
+        <div class="leading-tight"><b class="block text-[13px] text-navy font-display">相続ワンストップ</b><span class="text-[11px] text-ink/50">税理士・司法書士と連携</span></div>
+      </div>
+      <div class="absolute -right-4 bottom-16 glass rounded-2xl shadow-soft ring-1 ring-white/60 px-4 py-3 flex items-center gap-3 animate-floatyx">
+        <span class="w-9 h-9 rounded-xl bg-teal grid place-items-center text-white"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg></span>
+        <div class="leading-tight"><b class="block text-[13px] text-navy font-display">地域密着20年</b><span class="text-[11px] text-ink/50">顔の見える距離で</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="border-y border-ink/8 py-5 overflow-hidden">
+  <div class="flex w-max animate-marquee whitespace-nowrap">
+    <div class="flex items-center gap-10 pr-10 font-display font-bold text-2xl md:text-3xl text-navy/20">
+      <span>相続相談</span><span class="text-teal/40">✦</span><span>不動産管理</span><span class="text-pink/40">✦</span><span>売買・仲介</span><span class="text-cobalt/40">✦</span><span>土地活用</span><span class="text-lime/60">✦</span><span>空き家対策</span><span class="text-teal/40">✦</span>
+    </div>
+    <div class="flex items-center gap-10 pr-10 font-display font-bold text-2xl md:text-3xl text-navy/20" aria-hidden="true">
+      <span>相続相談</span><span class="text-teal/40">✦</span><span>不動産管理</span><span class="text-pink/40">✦</span><span>売買・仲介</span><span class="text-cobalt/40">✦</span><span>土地活用</span><span class="text-lime/60">✦</span><span>空き家対策</span><span class="text-teal/40">✦</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ WORRIES ============ -->
+<section class="py-24 md:py-36">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto">
+      <span class="reveal inline-block font-display font-bold tracking-[0.2em] text-[13px] text-teal">CHECK</span>
+      <h2 class="reveal mt-4 font-display font-extrabold text-navy text-[clamp(1.7rem,3.6vw,2.6rem)] leading-snug" style="transition-delay:.06s">土地と相続、こんなお悩みは<br class="hidden sm:block" />ありませんか？</h2>
+    </div>
+    <div data-stagger class="mt-14 grid md:grid-cols-2 gap-4 md:gap-5 max-w-4xl mx-auto">
+      <div class="reveal group flex items-center gap-4 bg-white rounded-3xl p-6 ring-1 ring-ink/8 shadow-soft hover:-translate-y-1 transition-transform">
+        <span class="shrink-0 w-11 h-11 rounded-full bg-teal/12 grid place-items-center text-teal"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span>
+        <p class="font-bold text-ink text-[15px] leading-relaxed">相続した土地を、活用すべきか売るべきか分からない</p>
+      </div>
+      <div class="reveal group flex items-center gap-4 bg-white rounded-3xl p-6 ring-1 ring-ink/8 shadow-soft hover:-translate-y-1 transition-transform">
+        <span class="shrink-0 w-11 h-11 rounded-full bg-cobalt/12 grid place-items-center text-cobalt"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span>
+        <p class="font-bold text-ink text-[15px] leading-relaxed">親が元気なうちに、土地のことを整理しておきたい</p>
+      </div>
+      <div class="reveal group flex items-center gap-4 bg-white rounded-3xl p-6 ring-1 ring-ink/8 shadow-soft hover:-translate-y-1 transition-transform">
+        <span class="shrink-0 w-11 h-11 rounded-full bg-pink/12 grid place-items-center text-pink"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span>
+        <p class="font-bold text-ink text-[15px] leading-relaxed">賃貸や空き地の管理が、だんだん負担になってきた</p>
+      </div>
+      <div class="reveal group flex items-center gap-4 bg-white rounded-3xl p-6 ring-1 ring-ink/8 shadow-soft hover:-translate-y-1 transition-transform">
+        <span class="shrink-0 w-11 h-11 rounded-full bg-violet/12 grid place-items-center text-violet"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span>
+        <p class="font-bold text-ink text-[15px] leading-relaxed">空室が埋まらない／建物の老朽化が心配</p>
+      </div>
+      <div class="reveal group md:col-span-2 flex items-center gap-4 bg-white rounded-3xl p-6 ring-1 ring-ink/8 shadow-soft hover:-translate-y-1 transition-transform">
+        <span class="shrink-0 w-11 h-11 rounded-full bg-lime/25 grid place-items-center text-navy"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span>
+        <p class="font-bold text-ink text-[15px] leading-relaxed">相続人が複数いて、土地の話がまとまらない</p>
+      </div>
+    </div>
+    <p class="reveal mt-12 text-center font-display font-extrabold text-navy text-[clamp(1.2rem,2.4vw,1.6rem)]">
+      ひとつでも当てはまったら、まずは<span class="text-grad">無料相談</span>から。
+    </p>
+    <p class="reveal mt-2 text-center text-ink/55 font-medium">どんな小さなことでも、地元の私たちにお聞かせください。</p>
+  </div>
+</section>
+
+<!-- ============ SERVICE ============ -->
+<section id="service" class="py-24 md:py-36 bg-mist">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <div>
+        <span class="reveal inline-block font-display font-bold tracking-[0.2em] text-[13px] text-cobalt">SERVICE</span>
+        <h2 class="reveal mt-4 font-display font-extrabold text-navy text-[clamp(1.9rem,4vw,3rem)] leading-tight" style="transition-delay:.06s">サービス紹介</h2>
+      </div>
+      <p class="reveal max-w-md text-ink/60 font-medium leading-relaxed" style="transition-delay:.12s">土地と暮らしに関わるご相談を、専門領域ごとに最適なかたちでサポートします。</p>
+    </div>
+
+    <div data-stagger class="mt-14 grid md:grid-cols-3 gap-6">
+      <!-- 相続 -->
+      <article class="reveal group bg-white rounded-4xl overflow-hidden ring-1 ring-ink/8 shadow-soft hover:-translate-y-2 transition-transform duration-300">
+        <div class="relative aspect-[16/11] overflow-hidden">
+          <img src="assets/svc_souzoku.png" alt="相続相談" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-lime text-navy text-[12px] font-display font-extrabold tracking-wide">相談実績 多数</span>
+        </div>
+        <div class="p-7">
+          <div class="flex items-center gap-3">
+            <span class="font-display font-black text-lime text-2xl" style="-webkit-text-stroke:1px #9bbf00">01</span>
+            <h3 class="font-display font-extrabold text-navy text-xl">相続相談</h3>
+          </div>
+          <p class="mt-3 text-[14.5px] text-ink/65 leading-relaxed">“争続”にしないために。税理士・司法書士と連携し、評価・分割・活用・納税までワンストップで。生前のご相談も歓迎です。</p>
+          <a href="#cta" class="mt-5 inline-flex items-center gap-2 text-navy font-bold text-sm group/link">詳しく見る <span class="w-7 h-7 rounded-full bg-mist grid place-items-center group-hover/link:bg-lime transition-colors"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        </div>
+      </article>
+      <!-- 管理 -->
+      <article class="reveal group bg-white rounded-4xl overflow-hidden ring-1 ring-ink/8 shadow-soft hover:-translate-y-2 transition-transform duration-300">
+        <div class="relative aspect-[16/11] overflow-hidden">
+          <img src="assets/svc_kanri.png" alt="不動産管理" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-teal text-white text-[12px] font-display font-extrabold tracking-wide">手間を、私たちに</span>
+        </div>
+        <div class="p-7">
+          <div class="flex items-center gap-3">
+            <span class="font-display font-black text-teal text-2xl">02</span>
+            <h3 class="font-display font-extrabold text-navy text-xl">不動産管理</h3>
+          </div>
+          <p class="mt-3 text-[14.5px] text-ink/65 leading-relaxed">空室対策から建物管理、入居者対応まで。オーナー様の手間を減らし、大切な資産の価値を守り続けます。「管理だけ」も可能です。</p>
+          <a href="#cta" class="mt-5 inline-flex items-center gap-2 text-navy font-bold text-sm group/link">詳しく見る <span class="w-7 h-7 rounded-full bg-mist grid place-items-center group-hover/link:bg-teal group-hover/link:text-white transition-colors"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        </div>
+      </article>
+      <!-- 売買 -->
+      <article class="reveal group bg-white rounded-4xl overflow-hidden ring-1 ring-ink/8 shadow-soft hover:-translate-y-2 transition-transform duration-300">
+        <div class="relative aspect-[16/11] overflow-hidden">
+          <img src="assets/svc_baibai.png" alt="売買・仲介" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-pink text-white text-[12px] font-display font-extrabold tracking-wide">土地の目利き</span>
+        </div>
+        <div class="p-7">
+          <div class="flex items-center gap-3">
+            <span class="font-display font-black text-pink text-2xl">03</span>
+            <h3 class="font-display font-extrabold text-navy text-xl">売買・仲介</h3>
+          </div>
+          <p class="mt-3 text-[14.5px] text-ink/65 leading-relaxed">土地・戸建・収益物件の売却も購入も。土木会社の視点で「その土地が本当に持つ価値」を見極め、納得の取引へ導きます。</p>
+          <a href="#cta" class="mt-5 inline-flex items-center gap-2 text-navy font-bold text-sm group/link">詳しく見る <span class="w-7 h-7 rounded-full bg-mist grid place-items-center group-hover/link:bg-pink group-hover/link:text-white transition-colors"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STRENGTH ============ -->
+<section id="strength" class="py-24 md:py-36">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-16 items-start">
+      <div class="lg:sticky lg:top-28">
+        <span class="reveal inline-block font-display font-bold tracking-[0.2em] text-[13px] text-pink">OUR STRENGTH</span>
+        <h2 class="reveal mt-4 font-display font-extrabold text-navy text-[clamp(1.9rem,4vw,3rem)] leading-[1.3]" style="transition-delay:.06s">
+          土木会社だからこそ、<br /><span class="hl-teal">土地を深く理解している。</span>
+        </h2>
+        <p class="reveal mt-6 text-ink/60 font-medium leading-relaxed max-w-md" style="transition-delay:.12s">建物だけでなく、土地そのものの価値を見極める。私たちにしかできない提案があります。</p>
+        <a href="#cta" class="reveal mt-8 inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full font-display font-bold text-white bg-cobalt shadow-glow hover:-translate-y-1 transition-transform" style="transition-delay:.18s">
+          相談してみる <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <div data-stagger class="grid sm:grid-cols-2 gap-5">
+        <article class="reveal bg-white rounded-4xl p-8 ring-1 ring-ink/8 shadow-soft hover:-translate-y-1.5 transition-transform">
+          <span class="font-display font-black text-3xl text-grad">01</span>
+          <h3 class="mt-4 font-display font-extrabold text-navy text-lg">土地活用の視点</h3>
+          <p class="mt-2.5 text-[14px] text-ink/60 leading-relaxed">建物だけでなく、地盤・造成・周辺環境まで。土木・建築の知見を、土地そのものの提案に活かします。</p>
+        </article>
+        <article class="reveal bg-white rounded-4xl p-8 ring-1 ring-ink/8 shadow-soft hover:-translate-y-1.5 transition-transform sm:mt-8">
+          <span class="font-display font-black text-3xl text-grad">02</span>
+          <h3 class="mt-4 font-display font-extrabold text-navy text-lg">地域密着20年</h3>
+          <p class="mt-2.5 text-[14px] text-ink/60 leading-relaxed">地元の地主様・オーナー様との長年の信頼関係。顔の見える距離で、末永くお付き合いします。</p>
+        </article>
+        <article class="reveal bg-white rounded-4xl p-8 ring-1 ring-ink/8 shadow-soft hover:-translate-y-1.5 transition-transform">
+          <span class="font-display font-black text-3xl text-grad">03</span>
+          <h3 class="mt-4 font-display font-extrabold text-navy text-lg">ワンストップ対応</h3>
+          <p class="mt-2.5 text-[14px] text-ink/60 leading-relaxed">相続・管理・売却・活用まで一貫対応。窓口がひとつだから、たらい回しの心配がありません。</p>
+        </article>
+        <article class="reveal bg-white rounded-4xl p-8 ring-1 ring-ink/8 shadow-soft hover:-translate-y-1.5 transition-transform sm:mt-8">
+          <span class="font-display font-black text-3xl text-grad">04</span>
+          <h3 class="mt-4 font-display font-extrabold text-navy text-lg">オーナー目線</h3>
+          <p class="mt-2.5 text-[14px] text-ink/60 leading-relaxed">売って終わりにしない。資産価値を最大化する提案を、常にオーナー様の立場で考えます。</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="py-24 md:py-36 bg-mist">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center">
+      <span class="reveal inline-block font-display font-bold tracking-[0.2em] text-[13px] text-violet">FAQ</span>
+      <h2 class="reveal mt-4 font-display font-extrabold text-navy text-[clamp(1.9rem,4vw,3rem)]" style="transition-delay:.06s">よくあるご質問</h2>
+    </div>
+    <div data-stagger class="mt-12 space-y-4">
+      <div class="reveal faq-item bg-white rounded-3xl ring-1 ring-ink/8 shadow-soft overflow-hidden">
+        <button class="faq-q w-full flex items-center gap-4 text-left px-7 py-6 font-bold text-navy text-[16px]">
+          <span class="flex-1">相続が発生する前でも相談できますか？</span>
+          <span class="faq-plus shrink-0 w-7 h-7 rounded-full bg-mist grid place-items-center text-cobalt transition-transform duration-300"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a"><div><p class="px-7 pb-6 text-[14.5px] text-ink/65 leading-relaxed">はい、生前のご相談を多くいただいています。早めにご相談いただくほど、選択肢を整理しやすく、ご家族にとって最良の形を準備できます。</p></div></div>
+      </div>
+      <div class="reveal faq-item bg-white rounded-3xl ring-1 ring-ink/8 shadow-soft overflow-hidden">
+        <button class="faq-q w-full flex items-center gap-4 text-left px-7 py-6 font-bold text-navy text-[16px]">
+          <span class="flex-1">管理だけ、一部だけのご依頼は可能ですか？</span>
+          <span class="faq-plus shrink-0 w-7 h-7 rounded-full bg-mist grid place-items-center text-cobalt transition-transform duration-300"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a"><div><p class="px-7 pb-6 text-[14.5px] text-ink/65 leading-relaxed">もちろん可能です。賃貸管理のみ、建物管理のみなど、必要な部分だけのご依頼にも柔軟に対応いたします。</p></div></div>
+      </div>
+      <div class="reveal faq-item bg-white rounded-3xl ring-1 ring-ink/8 shadow-soft overflow-hidden">
+        <button class="faq-q w-full flex items-center gap-4 text-left px-7 py-6 font-bold text-navy text-[16px]">
+          <span class="flex-1">土地を売るべきか、活用すべきか迷っています。</span>
+          <span class="faq-plus shrink-0 w-7 h-7 rounded-full bg-mist grid place-items-center text-cobalt transition-transform duration-300"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a"><div><p class="px-7 pb-6 text-[14.5px] text-ink/65 leading-relaxed">土木・建築の知見をもとに、売却・活用それぞれのシミュレーションをご提示します。数字を見ながら、最適な選択を一緒に考えます。</p></div></div>
+      </div>
+      <div class="reveal faq-item bg-white rounded-3xl ring-1 ring-ink/8 shadow-soft overflow-hidden">
+        <button class="faq-q w-full flex items-center gap-4 text-left px-7 py-6 font-bold text-navy text-[16px]">
+          <span class="flex-1">遠方に住んでいても相談できますか？</span>
+          <span class="faq-plus shrink-0 w-7 h-7 rounded-full bg-mist grid place-items-center text-cobalt transition-transform duration-300"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a"><div><p class="px-7 pb-6 text-[14.5px] text-ink/65 leading-relaxed">はい。オンライン相談やお電話・LINEに対応しています。離れて暮らすご実家の土地のご相談も、お気軽にどうぞ。</p></div></div>
+      </div>
+      <div class="reveal faq-item bg-white rounded-3xl ring-1 ring-ink/8 shadow-soft overflow-hidden">
+        <button class="faq-q w-full flex items-center gap-4 text-left px-7 py-6 font-bold text-navy text-[16px]">
+          <span class="flex-1">しつこく営業されませんか？費用は？</span>
+          <span class="faq-plus shrink-0 w-7 h-7 rounded-full bg-mist grid place-items-center text-cobalt transition-transform duration-300"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a"><div><p class="px-7 pb-6 text-[14.5px] text-ink/65 leading-relaxed">ご相談・お見積りは無料、秘密厳守です。こちらから無理な営業のご連絡をすることはありません。まずはお気軽にお問い合わせください。</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA + LINE ============ -->
+<section id="cta" class="py-24 md:py-36">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-6">
+    <!-- CTA -->
+    <div class="reveal-l relative overflow-hidden rounded-5xl p-9 md:p-12 text-white shadow-glow" style="background:linear-gradient(135deg,#0e2c5e 0%,#1f3f86 45%,#2b59ff 100%)">
+      <div class="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-teal/30 blur-3xl"></div>
+      <div class="relative">
+        <span class="inline-block font-display font-bold tracking-[0.2em] text-[12px] text-teal">FREE CONSULTATION</span>
+        <h3 class="mt-4 font-display font-extrabold text-[clamp(1.5rem,3vw,2.1rem)] leading-snug">まずは無料で、<br />ご相談ください。</h3>
+        <p class="mt-4 text-white/75 leading-relaxed max-w-md">土地や相続の悩みは、早めの相談が安心への第一歩。「うちの場合はどうなる？」に、地元の私たちがお答えします。</p>
+        <div class="mt-8 flex flex-col gap-3 max-w-sm">
+          <a href="#" class="group inline-flex justify-center items-center gap-2.5 px-7 py-4 rounded-full font-display font-bold text-white bg-pink shadow-glowpink hover:-translate-y-1 transition-transform">無料相談する <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="tel:0462595365" class="inline-flex justify-center items-center gap-2.5 px-7 py-4 rounded-full font-display font-bold text-navy bg-white hover:-translate-y-1 transition-transform"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.5 11.5 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.5 11.5 0 0 0 .58 3.6 1 1 0 0 1-.25 1Z"/></svg> 電話で相談する</a>
+        </div>
+        <div class="mt-7 flex flex-wrap gap-2.5">
+          <span class="inline-flex items-center gap-1.5 text-[12.5px] font-bold px-3 py-1.5 rounded-full bg-white/12">相談無料</span>
+          <span class="inline-flex items-center gap-1.5 text-[12.5px] font-bold px-3 py-1.5 rounded-full bg-white/12">秘密厳守</span>
+          <span class="inline-flex items-center gap-1.5 text-[12.5px] font-bold px-3 py-1.5 rounded-full bg-white/12">オンラインOK</span>
+          <span class="inline-flex items-center gap-1.5 text-[12.5px] font-bold px-3 py-1.5 rounded-full bg-lime text-navy">しつこい営業なし</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LINE -->
+    <div id="line" class="reveal-r relative overflow-hidden rounded-5xl p-9 md:p-12 bg-white ring-1 ring-ink/10 shadow-soft">
+      <div class="absolute -bottom-20 -left-16 w-72 h-72 rounded-full bg-[#06c755]/10 blur-3xl"></div>
+      <div class="relative">
+        <span class="inline-flex items-center gap-2.5">
+          <span class="w-11 h-11 rounded-2xl bg-[#06c755] grid place-items-center"><svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.9 3 2.75 6.34 2.75 10.46c0 3.69 3.29 6.78 7.74 7.37.3.06.71.2.81.46.09.24.06.6.03.85l-.13.79c-.04.23-.18.91.8.5.98-.42 5.3-3.12 7.23-5.34 1.33-1.46 1.97-2.95 1.97-4.63C21.2 6.34 17.06 3 12 3Z"/></svg></span>
+          <span class="font-display font-bold tracking-[0.18em] text-[12px] text-[#06b14c]">LINE</span>
+        </span>
+        <h3 class="mt-5 font-display font-extrabold text-navy text-[clamp(1.5rem,3vw,2.1rem)] leading-snug">LINEで、気軽に相談。</h3>
+        <p class="mt-4 text-ink/65 leading-relaxed max-w-md">友だち追加で<b class="text-[#06b14c]">「相続・土地活用 まるわかりガイド（PDF）」</b>をプレゼント。チャットで質問するだけでもOKです。</p>
+        <div class="mt-8 flex flex-col gap-3 max-w-sm">
+          <a href="#" class="inline-flex justify-center items-center gap-2.5 px-7 py-4 rounded-full font-display font-bold text-white bg-[#06c755] hover:-translate-y-1 transition-transform shadow-[0_18px_40px_-16px_rgba(6,199,85,.7)]"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.9 3 2.75 6.34 2.75 10.46c0 3.69 3.29 6.78 7.74 7.37.3.06.71.2.81.46.09.24.06.6.03.85l-.13.79c-.04.23-.18.91.8.5.98-.42 5.3-3.12 7.23-5.34 1.33-1.46 1.97-2.95 1.97-4.63C21.2 6.34 17.06 3 12 3Z"/></svg> 友だち追加する</a>
+          <a href="#" class="inline-flex justify-center items-center gap-2.5 px-7 py-4 rounded-full font-display font-bold text-navy bg-mist hover:-translate-y-1 transition-transform"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><path d="M14 14h2v2M18 14h2M14 18h2v2M20 18v2M18 20h2"/></svg> QRコードを見る</a>
+        </div>
+        <div class="mt-7 flex flex-wrap gap-2.5">
+          <span class="text-[12.5px] font-bold px-3 py-1.5 rounded-full bg-mist text-navy">気軽に質問できる</span>
+          <span class="text-[12.5px] font-bold px-3 py-1.5 rounded-full bg-mist text-navy">最新情報をお届け</span>
+          <span class="text-[12.5px] font-bold px-3 py-1.5 rounded-full bg-mist text-navy">相談予約も簡単</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer id="company" class="bg-navy text-white/70 pt-20 pb-10">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-wrap gap-12 justify-between">
+      <div class="max-w-sm">
+        <div class="flex items-center gap-3">
+          <span class="w-14 h-14 rounded-2xl bg-white grid place-items-center p-2"><img src="assets/logo_mark_hd.png" alt="いちれん不動産" class="w-full h-full object-contain" /></span>
+          <span class="leading-tight"><b class="block text-white font-display font-extrabold text-lg">いちれん不動産</b><span class="block text-[10px] tracking-[0.24em] text-teal font-display">ICHIREN REAL ESTATE</span></span>
+        </div>
+        <p class="mt-5 text-[13px] leading-relaxed text-white/55">土木会社の知見を活かし、売却・管理・相続・土地活用までワンストップでサポートする、地域密着の不動産会社です。</p>
+      </div>
+      <nav class="flex flex-wrap gap-x-10 gap-y-3 text-[14px] font-semibold text-white/80">
+        <a href="#service" class="hover:text-teal transition-colors">サービス</a>
+        <a href="#strength" class="hover:text-teal transition-colors">強み</a>
+        <a href="#faq" class="hover:text-teal transition-colors">よくあるご質問</a>
+        <a href="#company" class="hover:text-teal transition-colors">会社概要</a>
+        <a href="recruit.html" class="hover:text-teal transition-colors">採用情報</a>
+      </nav>
+      <div class="text-left md:text-right">
+        <a href="tel:0462595365" class="inline-flex items-center gap-2.5 font-display font-bold text-white text-2xl md:text-3xl"><svg class="w-6 h-6 text-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.5 11.5 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.5 11.5 0 0 0 .58 3.6 1 1 0 0 1-.25 1Z"/></svg>046-259-5365</a>
+        <p class="mt-2 text-[12.5px] text-white/50">受付時間 ｜ 9:00〜18:00（土日祝も対応）</p>
+      </div>
+    </div>
+    <div class="mt-12 pt-6 border-t border-white/12 flex flex-wrap gap-3 justify-between text-[12px] text-white/45">
+      <span>© 2026 いちれん不動産（ICHIREN REAL ESTATE）</span>
+      <span>宅地建物取引業免許 ｜ プライバシーポリシー ｜ 特定商取引法に基づく表記</span>
+    </div>
+  </div>
+</footer>
+
+<!-- sticky mobile bar -->
+<div class="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-white border-t border-ink/10 shadow-[0_-8px_24px_rgba(14,44,94,.1)] flex">
+  <a href="tel:0462595365" class="flex-1 flex flex-col items-center justify-center gap-0.5 py-3 text-navy font-bold text-[12px]"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.5 11.5 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.5 11.5 0 0 0 .58 3.6 1 1 0 0 1-.25 1Z"/></svg>電話</a>
+  <a href="#line" class="flex-1 flex flex-col items-center justify-center gap-0.5 py-3 text-[#06c755] font-bold text-[12px]"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.9 3 2.75 6.34 2.75 10.46c0 3.69 3.29 6.78 7.74 7.37.3.06.71.2.81.46.09.24.06.6.03.85l-.13.79c-.04.23-.18.91.8.5.98-.42 5.3-3.12 7.23-5.34 1.33-1.46 1.97-2.95 1.97-4.63C21.2 6.34 17.06 3 12 3Z"/></svg>LINE</a>
+  <a href="#cta" class="flex-[1.4] flex items-center justify-center bg-pink text-white font-display font-bold text-sm m-2 rounded-full">無料相談する</a>
+</div>
+
+<script>
+  // header scroll state
+  const hdrbar = document.getElementById('hdrbar');
+  const onScroll = () => {
+    if (window.scrollY > 20) hdrbar.classList.add('glass','shadow-soft','rounded-2xl','mt-3','px-5','ring-1','ring-ink/5');
+    else hdrbar.classList.remove('glass','shadow-soft','rounded-2xl','mt-3','px-5','ring-1','ring-ink/5');
+  };
+  window.addEventListener('scroll', onScroll, { passive:true }); onScroll();
+
+  // mobile drawer
+  const drawer = document.getElementById('drawer');
+  const panel = document.getElementById('drawerPanel');
+  const openD = () => { drawer.classList.remove('invisible','opacity-0'); requestAnimationFrame(()=>panel.classList.remove('translate-x-full')); };
+  const closeD = () => { panel.classList.add('translate-x-full'); drawer.classList.add('opacity-0'); setTimeout(()=>drawer.classList.add('invisible'),300); };
+  document.getElementById('menuBtn').addEventListener('click', openD);
+  drawer.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', closeD));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
+  });
+
+  // scroll reveal + stagger (rAF/scroll based — reliable on load & across renderers)
+  document.querySelectorAll('[data-stagger]').forEach(group => {
+    group.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach((el, i) => { el.style.transitionDelay = (i * 90) + 'ms'; });
+  });
+  const reveals = Array.from(document.querySelectorAll('.reveal, .reveal-l, .reveal-r'));
+  function checkReveal(){
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    for (let i = reveals.length - 1; i >= 0; i--) {
+      const el = reveals[i];
+      const r = el.getBoundingClientRect();
+      if (r.top < vh * 0.9 && r.bottom > 0) { el.classList.add('in'); reveals.splice(i, 1); }
+    }
+  }
+  window.addEventListener('scroll', checkReveal, { passive: true });
+  window.addEventListener('resize', checkReveal);
+  checkReveal();
+  requestAnimationFrame(checkReveal);
+  setTimeout(checkReveal, 250);
+  // failsafe: guarantee above-the-fold content is visible shortly after load,
+  // even if the animation timeline is paused (some capture/preview contexts).
+  setTimeout(function(){
+    var vh = window.innerHeight || 800;
+    document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(function(el){
+      if (el.getBoundingClientRect().top < vh) el.classList.add('shown');
+    });
+  }, 1500);
+</script>
+</body>
+</html>

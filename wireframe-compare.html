@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LP 構成比較 ｜ いちれん不動産</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet" />
+<style>
+  html,body{margin:0;height:100%;background:#f0eee9;font-family:"Zen Kaku Gothic New",sans-serif;}
+  #root{height:100vh;}
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="wireframe-kit.jsx"></script>
+<script type="text/babel" src="wireframe-variations.jsx"></script>
+<script type="text/babel" src="wireframe-sp.jsx"></script>
+<script type="text/babel">
+  const { VariantA, VariantB, VariantC } = window.WFV;
+  const { SPVariantA, SPVariantB, SPVariantC } = window.WFSP;
+
+  // header note inside each artboard top — concept summary
+  const Concept = ({tone, title, lines}) =>
+    <div style={{padding:'14px 16px',background:tone,borderBottom:'2px solid #3a3a3a'}}>
+      <div style={{fontFamily:'"Kalam",cursive',fontWeight:700,fontSize:15,color:'#fff'}}>{title}</div>
+      <div style={{fontFamily:'"Zen Kaku Gothic New",sans-serif',fontSize:11,color:'rgba(255,255,255,.9)',marginTop:4,lineHeight:1.6}}>{lines}</div>
+    </div>;
+
+  const PCW = 470, SPW = 312;
+
+  function App(){
+    return (
+      <DesignCanvas>
+        <DCSection id="pc" title="PC ／ 構成比較" subtitle="3つの構成アプローチ — デスクトップ">
+          <DCArtboard id="A" label="案A · 信頼・実績先行型" width={PCW} height={2045}>
+            <Concept tone="#123b7a" title="案A — 信頼・実績先行型"
+              lines="現行ベース。サービス→強み→お客様の声→FAQ の順で、堅実さと実績で信頼を積み上げる王道型。" />
+            <VariantA/>
+          </DCArtboard>
+          <DCArtboard id="B" label="案B · お悩み解決・ストーリー型" width={PCW} height={2230}>
+            <Concept tone="#0c7a6a" title="案B — お悩み解決・ストーリー型"
+              lines="お悩み提起→共感→解決の流れで読ませる。相続・空き家など潜在ニーズの掘り起こしに強い構成。" />
+            <VariantB/>
+          </DCArtboard>
+          <DCArtboard id="C" label="案C · 実績数値・事例主導型" width={PCW} height={2015}>
+            <Concept tone="#b1561f" title="案C — 実績数値・事例主導型"
+              lines="全面写真＋数値バンドでインパクト先行。導入事例を主役にし、説得力と訴求力を最大化。" />
+            <VariantC/>
+          </DCArtboard>
+        </DCSection>
+
+        <DCSection id="sp" title="SP ／ 構成比較" subtitle="同じ3案のスマートフォン構成">
+          <DCArtboard id="spA" label="案A · SP" width={SPW} height={1890}><SPVariantA/></DCArtboard>
+          <DCArtboard id="spB" label="案B · SP" width={SPW} height={1945}><SPVariantB/></DCArtboard>
+          <DCArtboard id="spC" label="案C · SP" width={SPW} height={1720}><SPVariantC/></DCArtboard>
+        </DCSection>
+      </DesignCanvas>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

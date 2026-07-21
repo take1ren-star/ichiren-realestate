@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LP コピーシート ｜ いちれん不動産</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#123b7a; --navy-deep:#0d2c5d; --teal:#19c4ab; --teal-deep:#0c7a6a;
+    --pink:#d24b86; --lime:#c9e265;
+    --ink:#1f2733; --ink-soft:#5b6573; --line:#e3e8ef; --bg:#eef1f6; --paper:#fff;
+    --en:"Outfit",sans-serif; --jp:"Noto Sans JP",sans-serif;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--jp);line-height:1.85;
+    font-size:15px;-webkit-font-smoothing:antialiased;}
+  .page{max-width:880px;margin:0 auto;padding:0 24px 100px;}
+
+  /* ---- cover ---- */
+  .cover{background:linear-gradient(125deg,var(--navy) 0%,var(--navy-deep) 100%);color:#fff;
+    border-radius:0 0 28px 28px;padding:54px 48px 46px;position:relative;overflow:hidden;
+    margin-bottom:42px;}
+  .cover::before{content:"";position:absolute;inset:0;
+    background:radial-gradient(560px 360px at 92% -20%,rgba(25,196,171,.34),transparent 60%),
+               radial-gradient(440px 320px at 4% 120%,rgba(201,226,101,.18),transparent 60%);}
+  .cover > *{position:relative;z-index:2;}
+  .cover .ey{font-family:var(--en);font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+    font-size:12px;color:var(--teal);}
+  .cover h1{font-size:32px;font-weight:800;margin:12px 0 0;letter-spacing:.01em;line-height:1.4;}
+  .cover .sub{margin-top:14px;color:#cdd9ef;font-size:14.5px;max-width:46em;}
+  .cover .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+  .cover .mtag{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:6px 14px;font-size:12.5px;font-weight:600;color:#eaf1fb;}
+  .cover .mtag b{color:#fff;}
+
+  /* ---- strategy ---- */
+  .strategy{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+    padding:30px 30px 26px;margin-bottom:40px;box-shadow:0 1px 2px rgba(16,40,80,.04);}
+  .strategy h2{font-size:19px;color:var(--navy);margin:0 0 4px;font-weight:800;}
+  .strategy .lead{color:var(--ink-soft);font-size:14px;margin:0 0 22px;}
+  .targets{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px;}
+  .tcard{border:1px solid var(--line);border-radius:12px;padding:16px 16px 14px;background:#f8fafc;}
+  .tcard .tn{font-family:var(--en);font-weight:700;font-size:12px;color:var(--teal-deep);letter-spacing:.06em;}
+  .tcard h3{font-size:15px;margin:6px 0 6px;color:var(--navy);}
+  .tcard p{font-size:12.5px;color:var(--ink-soft);margin:0;line-height:1.7;}
+  .principles{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .pr{display:flex;gap:11px;align-items:flex-start;}
+  .pr .pn{flex:none;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;
+    display:grid;place-items:center;font-family:var(--en);font-weight:700;font-size:13px;margin-top:2px;}
+  .pr h4{font-size:13.5px;margin:0 0 3px;color:var(--ink);}
+  .pr p{font-size:12px;color:var(--ink-soft);margin:0;line-height:1.6;}
+  @media(max-width:640px){.targets,.principles{grid-template-columns:1fr;}}
+
+  /* ---- section block ---- */
+  .sec{margin-bottom:34px;}
+  .sec-bar{display:flex;align-items:center;gap:13px;margin-bottom:14px;}
+  .sec-bar .num{flex:none;width:38px;height:38px;border-radius:11px;background:var(--navy);color:#fff;
+    display:grid;place-items:center;font-family:var(--en);font-weight:800;font-size:17px;}
+  .sec-bar .num.add{background:var(--teal-deep);}
+  .sec-bar .lbl .en{font-family:var(--en);font-weight:700;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--teal-deep);}
+  .sec-bar .lbl h2{font-size:20px;margin:1px 0 0;color:var(--navy);font-weight:800;}
+  .sec-bar .pillrole{margin-left:auto;font-size:11.5px;font-weight:700;color:var(--ink-soft);
+    border:1px solid var(--line);background:#fff;border-radius:999px;padding:4px 12px;}
+  .sec-bar .pillrole.rec{color:var(--teal-deep);border-color:#bdeae0;background:#effbf8;}
+
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px 26px;box-shadow:0 1px 2px rgba(16,40,80,.04);}
+  .card + .card{margin-top:12px;}
+
+  .role{font-size:12.5px;color:var(--ink-soft);margin:0 0 16px;padding-bottom:14px;border-bottom:1px dashed var(--line);}
+  .role b{color:var(--navy);}
+
+  .field{margin:0 0 16px;}
+  .field:last-child{margin-bottom:0;}
+  .fl{font-family:var(--en);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--teal-deep);display:block;margin-bottom:7px;}
+  .copy{font-size:16px;font-weight:700;color:var(--ink);line-height:1.7;}
+  .copy.big{font-size:23px;font-weight:800;color:var(--navy);letter-spacing:.01em;line-height:1.5;}
+  .copy.body{font-size:14.5px;font-weight:500;color:#36404e;line-height:1.95;}
+  .muted{color:var(--ink-soft);font-weight:500;font-size:13.5px;}
+
+  /* option set */
+  .opt{border:1px solid var(--line);border-radius:12px;padding:15px 17px;margin-top:10px;background:#f8fafc;position:relative;}
+  .opt:first-of-type{margin-top:8px;}
+  .opt .tag{position:absolute;top:-10px;left:14px;background:var(--navy);color:#fff;font-family:var(--en);
+    font-weight:700;font-size:11px;padding:2px 10px;border-radius:999px;letter-spacing:.04em;}
+  .opt.pick{border-color:var(--teal);background:#effbf8;}
+  .opt.pick .tag{background:var(--teal-deep);}
+  .opt .ohead{font-size:12px;color:var(--teal-deep);font-weight:700;margin:2px 0 8px;}
+  .opt .main{font-size:21px;font-weight:800;color:var(--navy);line-height:1.5;}
+  .opt .subc{font-size:14px;color:#36404e;margin-top:7px;line-height:1.8;font-weight:500;}
+
+  /* chips / buttons preview */
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+  .chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;
+    border-radius:999px;padding:6px 13px;font-size:12.5px;font-weight:600;color:var(--navy);}
+  .chip .d{width:7px;height:7px;border-radius:50%;background:var(--teal);}
+  .btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+  .btn{display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:9px 18px;font-size:13px;font-weight:700;}
+  .btn.primary{background:var(--teal);color:#08382f;}
+  .btn.pink{background:var(--pink);color:#fff;}
+  .btn.line{background:#06c755;color:#fff;}
+  .btn.ghost{background:#fff;border:1.5px solid var(--line);color:var(--navy);}
+
+  /* list copy (service items, faq, problems) */
+  .items{display:flex;flex-direction:column;gap:14px;}
+  .item{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:#f8fafc;}
+  .item .ih{display:flex;align-items:center;gap:10px;margin-bottom:7px;}
+  .item .ico{flex:none;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:13px;font-family:var(--en);}
+  .item h3{font-size:16px;margin:0;color:var(--navy);}
+  .item .tagline{font-size:12px;color:var(--teal-deep);font-weight:700;margin-left:auto;}
+  .item p{margin:0;font-size:13.5px;color:#36404e;line-height:1.85;}
+
+  .qa{border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+  .qa .q{display:flex;gap:10px;padding:13px 16px;background:#f8fafc;font-weight:700;color:var(--navy);font-size:14px;border-bottom:1px solid var(--line);}
+  .qa .q .qm{color:var(--teal-deep);font-family:var(--en);font-weight:800;}
+  .qa .a{display:flex;gap:10px;padding:13px 16px;font-size:13.5px;color:#36404e;line-height:1.85;}
+  .qa .a .am{color:var(--pink);font-family:var(--en);font-weight:800;}
+  .qa + .qa{margin-top:10px;}
+
+  /* rationale note */
+  .why{margin-top:14px;background:#effbf8;border:1px solid #bdeae0;border-radius:11px;padding:12px 15px;
+    font-size:12.5px;color:#0a5f53;line-height:1.7;}
+  .why b{color:var(--teal-deep);}
+  .why .wl{font-family:var(--en);font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:4px;color:var(--teal-deep);}
+
+  .divider{display:flex;align-items:center;gap:14px;margin:46px 0 30px;}
+  .divider .ln{flex:1;height:1px;background:var(--line);}
+  .divider .dt{font-family:var(--en);font-weight:700;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);}
+
+  .microgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .micro{border:1px solid var(--line);border-radius:11px;padding:14px 16px;background:#fff;}
+  .micro .ml{font-family:var(--en);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-deep);}
+  .micro ul{margin:8px 0 0;padding-left:18px;}
+  .micro li{font-size:13px;color:#36404e;margin-bottom:5px;line-height:1.6;}
+  @media(max-width:640px){.microgrid{grid-template-columns:1fr;}}
+
+  .foot{margin-top:46px;text-align:center;color:var(--ink-soft);font-size:12px;}
+
+  @media print{
+    body{background:#fff;}
+    .cover{border-radius:0;}
+    .card,.strategy,.tcard,.item,.qa,.opt,.micro{box-shadow:none;}
+    .sec{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============ COVER ============ -->
+  <header class="cover">
+    <div class="ey">Landing Page · Copywriting</div>
+    <h1>LP コピーシート<br />相続・管理・地主からの「問い合わせ」を最大化する</h1>
+    <p class="sub">いちれん不動産トップページ（案A構成）の全セクション・コピー案です。先祖代々の土地という“相談しづらいテーマ”の心理的ハードルを下げ、行動につなげる設計にしています。</p>
+    <div class="meta">
+      <span class="mtag">対象：<b>相続相談 ／ 不動産管理 ／ 地主</b></span>
+      <span class="mtag">構成：<b>案A（信頼・実績先行型）</b></span>
+      <span class="mtag">凡例：<b>★＝推奨採用</b></span>
+    </div>
+  </header>
+
+  <!-- ============ STRATEGY ============ -->
+  <section class="strategy">
+    <h2>コピー設計の方針</h2>
+    <p class="lead">「誰に何を言うか」を先に決め、各セクションのコピーを一貫させています。</p>
+
+    <div class="targets">
+      <div class="tcard">
+        <div class="tn">TARGET 01</div>
+        <h3>相続に直面する地主・親世代</h3>
+        <p>「相続した／する土地をどうすれば」。重く、相談先が分からない層。安心と専門性で背中を押す。</p>
+      </div>
+      <div class="tcard">
+        <div class="tn">TARGET 02</div>
+        <h3>管理に手間を感じるオーナー</h3>
+        <p>空室・老朽化・入居者対応の負担。「任せてラクになる」を具体に。</p>
+      </div>
+      <div class="tcard">
+        <div class="tn">TARGET 03</div>
+        <h3>土地の今後に迷う地主</h3>
+        <p>売る／活かすの判断に迷う層。土木の知見による“目利き”で信頼を得る。</p>
+      </div>
+    </div>
+
+    <div class="principles">
+      <div class="pr"><span class="pn">1</span><div><h4>不安を言語化して共感</h4><p>悩みを先に代弁し「自分ごと」にしてもらう。お悩みブロック→解決の流れ。</p></div></div>
+      <div class="pr"><span class="pn">2</span><div><h4>専門性 × 地元の信頼</h4><p>「土木会社の知見」「地域20年」で“ここなら任せられる”を裏付ける。</p></div></div>
+      <div class="pr"><span class="pn">3</span><div><h4>相談ハードルを徹底的に下げる</h4><p>無料・秘密厳守・オンライン・LINE・「しつこい営業なし」を随所で明言。</p></div></div>
+    </div>
+  </section>
+
+  <!-- ============ ① HEADER ============ -->
+  <section class="sec">
+    <div class="sec-bar">
+      <span class="num">1</span>
+      <div class="lbl"><span class="en">Header</span><h2>ヘッダー（固定）</h2></div>
+      <span class="pillrole">常時表示</span>
+    </div>
+    <div class="card">
+      <p class="role"><b>役割：</b>ブランド提示と、いつでも相談に飛べる導線の確保。</p>
+      <div class="field"><span class="fl">ナビゲーション</span><div class="copy">サービス ／ 強み ／ よくあるご質問 ／ 会社概要 ／ 採用情報</div></div>
+      <div class="field"><span class="fl">ヘッダーCTA</span>
+        <div class="btns"><span class="btn primary">無料相談する</span><span class="btn line">LINEで相談</span></div>
+      </div>
+      <div class="field"><span class="fl">補助コピー（任意・CTA脇）</span><div class="copy muted">相続・管理のご相談、何度でも無料です</div></div>
+    </div>
+  </section>
+
+  <!-- ============ ② FV ============ -->
+  <section class="sec">
+    <div class="sec-bar">
+      <span class="num">2</span>
+      <div class="lbl"><span class="en">First View</span><h2>ファーストビュー</h2></div>
+      <span class="pillrole">最重要</span>
+    </div>
+    <div class="card">
+      <p class="role"><b>役割：</b>3秒で「自分のための会社だ」と感じてもらう。メインコピーは下記3案からお選びください。</p>
+
+      <div class="field">
+        <span class="fl">メインキャッチ（3案）</span>
+
+        <div class="opt pick">
+          <span class="tag">案A ★推奨</span>
+          <div class="ohead">情緒・継承型 — 地主の“継ぐ”心理に寄り添う</div>
+          <div class="main">その土地を、<br />次の世代へ。</div>
+          <div class="subc">相続も、管理も、活用も。地元の土地のことなら、いちれん不動産へ。</div>
+        </div>
+
+        <div class="opt">
+          <span class="tag">案B</span>
+          <div class="ohead">不安解消型 — 相続の“どうしよう”に直接応える</div>
+          <div class="main">相続した土地、どうしよう。</div>
+          <div class="subc">その“どうしよう”に、地元で20年。土木会社の私たちが、最適な答えを一緒に探します。</div>
+        </div>
+
+        <div class="opt">
+          <span class="tag">案C</span>
+          <div class="ohead">ブランド踏襲型 — 現行コピーを活かす</div>
+          <div class="main">土地に、次の価値を。</div>
+          <div class="subc">相続も、管理も、売却も。土木会社の知見をもつ私たちが、最適な選択を一緒に考えます。</div>
+        </div>
+      </div>
+
+      <div class="field"><span class="fl">リード文（キャッチ下）</span>
+        <div class="copy body">先祖代々の土地、空き家、相続──。<br />「誰に相談すればいいか分からない」を、地域に根ざしたいちれん不動産が解決します。</div>
+      </div>
+
+      <div class="field"><span class="fl">信頼チップ（4点）</span>
+        <div class="chips">
+          <span class="chip"><span class="d"></span>地域密着20年以上</span>
+          <span class="chip"><span class="d"></span>相続のご相談多数</span>
+          <span class="chip"><span class="d"></span>土木会社だからわかる“土地の目利き”</span>
+          <span class="chip"><span class="d"></span>相談無料・秘密厳守</span>
+        </div>
+      </div>
+
+      <div class="field"><span class="fl">ファーストビューCTA</span>
+        <div class="btns"><span class="btn primary">無料で相談する →</span><span class="btn ghost">LINEで相談する</span></div>
+        <div class="copy muted" style="margin-top:9px;">▶ ボタン脇マイクロコピー：しつこい営業は一切いたしません</div>
+      </div>
+
+      <div class="why"><span class="wl">なぜ効くか</span>キャッチで“対象”を即時に絞り（相続・土地）、リードで悩みを代弁、チップで信頼を担保、CTA脇の一言で「営業されそう」という最大の離脱要因を先回りして打ち消します。</div>
+    </div>
+  </section>
+
+  <!-- ============ ★ 推奨追加：お悩み共感 ============ -->
+  <section class="sec">
+    <div class="sec-bar">
+      <span class="num add">＋</span>
+      <div class="lbl"><span class="en">Empathy Block</span><h2>お悩み共感ブロック</h2></div>
+      <span class="pillrole rec">★推奨で追加</span>
+    </div>
+    <div class="card">
+      <p class="role"><b>役割：</b>FV直後に悩みを“自分ごと化”させ、問い合わせ率を底上げする最重要追加セクション。（現行LPには無いため新設を推奨）</p>
+      <div class="field"><span class="fl">見出し</span><div class="copy big">土地と相続、こんなお悩みはありませんか？</div></div>
+      <div class="field"><span class="fl">お悩みリスト（5点・チェック形式）</span>
+        <div class="items">
+          <div class="item"><p>✓ 相続した土地を、活用すべきか売るべきか分からない</p></div>
+          <div class="item"><p>✓ 親が元気なうちに、土地のことを整理しておきたい</p></div>
+          <div class="item"><p>✓ 賃貸や空き地の管理が、だんだん負担になってきた</p></div>
+          <div class="item"><p>✓ 空室が埋まらない／建物の老朽化が心配</p></div>
+          <div class="item"><p>✓ 相続人が複数いて、土地の話がまとまらない</p></div>
+        </div>
+      </div>
+      <div class="field"><span class="fl">締めコピー（CTAへ接続）</span><div class="copy">ひとつでも当てはまったら、まずは無料相談から。<span class="muted">どんな小さなことでも、地元の私たちにお聞かせください。</span></div></div>
+      <div class="why"><span class="wl">なぜ効くか</span>3ターゲット（相続・管理・地主）の悩みを1行ずつ網羅。「これ、うちのことだ」という自己関連付けが、その後のCTAクリック率を大きく押し上げます。</div>
+    </div>
+  </section>
+
+  <!-- ============ ③ SERVICE ============ -->
+  <section class="sec">
+    <div class="sec-bar">
+      <span class="num">3</span>
+      <div class="lbl"><span class="en">Service</span><h2>サービス紹介</h2></div>
+      <span class="pillrole">3カード</span>
+    </div>
+    <div class="card">
+      <p class="role"><b>役割：</b>「何をしてくれるか」を提示。<b>並び順は 相続 → 管理 → 売買</b> を推奨（ターゲット優先度順）。</p>
+      <div class="field"><span class="fl">セクションリード</span><div class="copy body muted">土地と暮らしに関わるご相談を、専門領域ごとに最適なかたちでサポートします。</div></div>
+      <div class="field"><span class="fl">カード本文</span>
+        <div class="items">
+          <div class="item">
+            <div class="ih"><span class="ico" style="background:var(--lime);color:#3a4a12;">相</span><h3>相続相談</h3><span class="tagline">いちばん相談が多い</span></div>
+            <p>“争続”にしないために。税理士・司法書士と連携し、土地の評価・分割・活用・納税までワンストップで。相続が起きる前の生前のご相談も歓迎です。</p>
+          </div>
+          <div class="item">
+            <div class="ih"><span class="ico" style="background:var(--teal);color:#08382f;">管</span><h3>不動産管理</h3><span class="tagline">手間を、私たちに</span></div>
+            <p>空室対策から建物管理、入居者対応まで。オーナー様の手間を減らし、大切な資産の価値を守り続けます。「管理だけ」のご依頼も可能です。</p>
+          </div>
+          <div class="item">
+            <div class="ih"><span class="ico" style="background:var(--pink);">売</span><h3>売買・仲介</h3><span class="tagline">土地の目利き</span></div>
+            <p>土地・戸建・収益物件の売却も購入も。土木会社の視点で「その土地が本当に持つ価値」を見極め、納得の取引へ導きます。</p>
+          </div>
+        </div>
+      </div>
+      <div class="field"><span class="fl">各カード共通リンク</span><div class="copy muted">詳しく見る →</div></div>
+    </div>
+  </section>
+
+  <!-- ============ ④ STRENGTH ============ -->
+  <section class="sec">
+    <div class="sec-bar">
+      <span class="num">4</span>
+      <div class="lbl"><span class="en">Our Strength</span><h2>いちれん不動産の強み</h2></div>
+      <span class="pillrole">4項目</span>
+    </div>
+    <div class="card">
+      <p class="role"><b>役割：</b>「なぜ、ここに頼むのか」の理由づけ。他社との違いを“土木の知見”で明確化。</p>
+      <div class="field"><span class="fl">リードコピー（大見出し）</span><div class="copy big">土木会社だからこそ、<br />土地を深く理解している。</div></div>
+      <div class="field"><span class="fl">強み4点</span>
+        <div class="items">
+          <div class="item"><div class="ih"><span class="ico" style="background:var(--navy);">01</span><h3>土地活用の視点</h3></div><p>建物だけでなく、地盤・造成・周辺環境まで。土木・建築の知見を、土地そのものの提案に活かします。</p></div>
+          <div class="item"><div class="ih"><span class="ico" style="background:var(--navy);">02</span><h3>地域密着20年</h3></div><p>地元の地主様・オーナー様との長年の信頼関係。顔の見える距離で、末永くお付き合いします。</p></div>
+          <div class="item"><div class="ih"><span class="ico" style="background:var(--navy);">03</span><h3>ワンストップ対応</h3></div><p>相続・管理・売却・活用まで一貫対応。窓口がひとつだから、たらい回しの心配がありません。</p></div>
+          <div class="item"><div class="ih"><span class="ico" style="background:var(--navy);">04</span><h3>オーナー目線</h3></div><p>売って終わりにしない。資産価値を最大化する提案を、常にオーナー様の立場で考えます。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ⑤ FAQ ============ -->
+  <section class="sec">
+    <div class="sec-bar">
+      <span class="num">5</span>
+      <div class="lbl"><span class="en">FAQ</span><h2>よくあるご質問</h2></div>
+      <span class="pillrole">不安の解消</span>
+    </div>
+    <div class="card">
+      <p class="role"><b>役割：</b>問い合わせ直前の“最後の不安”を取り除く。相続・管理・地主が抱きやすい疑問に最適化（営業・費用・遠方の不安を追加）。</p>
+      <div class="qa"><div class="q"><span class="qm">Q</span>相続が発生する前でも相談できますか？</div><div class="a"><span class="am">A</span>はい、生前のご相談を多くいただいています。早めにご相談いただくほど、選択肢を整理しやすく、ご家族にとって最良の形を準備できます。</div></div>
+      <div class="qa"><div class="q"><span class="qm">Q</span>管理だけ、一部だけのご依頼は可能ですか？</div><div class="a"><span class="am">A</span>もちろん可能です。賃貸管理のみ、建物管理のみなど、必要な部分だけのご依頼にも柔軟に対応します。</div></div>
+      <div class="qa"><div class="q"><span class="qm">Q</span>土地を売るべきか、活用すべきか迷っています。</div><div class="a"><span class="am">A</span>土木・建築の知見をもとに、売却・活用それぞれのシミュレーションをご提示します。数字を見ながら、最適な選択を一緒に考えます。</div></div>
+      <div class="qa"><div class="q"><span class="qm">Q</span>遠方に住んでいても相談できますか？</div><div class="a"><span class="am">A</span>はい。オンライン相談やお電話・LINEに対応しています。離れて暮らすご実家の土地のご相談も、お気軽にどうぞ。</div></div>
+      <div class="qa"><div class="q"><span class="qm">Q</span>しつこく営業されませんか？費用は？</div><div class="a"><span class="am">A</span>ご相談・お見積りは無料、秘密厳守です。こちらから無理な営業のご連絡をすることはありません。まずはお気軽にお問い合わせください。</div></div>
+    </div>
+  </section>
+
+  <!-- ============ ⑥ CTA / LINE ============ -->
+  <section class="sec">
+    <div class="sec-bar">
+      <span class="num">6</span>
+      <div class="lbl"><span class="en">CTA / LINE</span><h2>クロージング（CTA・LINE）</h2></div>
+      <span class="pillrole">2カラム</span>
+    </div>
+    <div class="card">
+      <p class="role"><b>役割：</b>2つの入口で行動を後押し。<b>左＝しっかり相談（電話/フォーム）</b>、<b>右＝気軽なLINE</b>。</p>
+      <div class="field"><span class="fl">CTAパネル（左）</span>
+        <div class="copy big" style="font-size:20px;">まずは無料で、ご相談ください。</div>
+        <div class="copy body muted" style="margin-top:6px;">土地や相続の悩みは、早めの相談が安心への第一歩。「うちの場合はどうなる？」に、地元の私たちがお答えします。</div>
+        <div class="btns" style="margin-top:12px;"><span class="btn pink">無料相談する →</span><span class="btn ghost">電話で相談する</span></div>
+        <div class="chips" style="margin-top:10px;"><span class="chip"><span class="d"></span>相談無料</span><span class="chip"><span class="d"></span>秘密厳守</span><span class="chip"><span class="d"></span>オンラインOK</span><span class="chip"><span class="d"></span>しつこい営業なし</span></div>
+      </div>
+      <div class="field" style="margin-top:20px;padding-top:18px;border-top:1px dashed var(--line);"><span class="fl">LINEパネル（右）</span>
+        <div class="copy big" style="font-size:20px;">LINEで、気軽に相談。</div>
+        <div class="copy body muted" style="margin-top:6px;">友だち追加で「相続・土地活用 まるわかりガイド（PDF）」をプレゼント。チャットで質問するだけでもOKです。</div>
+        <div class="btns" style="margin-top:12px;"><span class="btn line">友だち追加する</span><span class="btn ghost">QRコードを見る</span></div>
+        <div class="chips" style="margin-top:10px;"><span class="chip"><span class="d"></span>気軽に質問できる</span><span class="chip"><span class="d"></span>最新情報をお届け</span><span class="chip"><span class="d"></span>相談予約も簡単</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ⑦ FOOTER ============ -->
+  <section class="sec">
+    <div class="sec-bar">
+      <span class="num">7</span>
+      <div class="lbl"><span class="en">Footer</span><h2>フッター</h2></div>
+      <span class="pillrole">信頼の担保</span>
+    </div>
+    <div class="card">
+      <p class="role"><b>役割：</b>会社情報と免許で“実在する地元企業”の安心を提示。</p>
+      <div class="field"><span class="fl">会社紹介文</span><div class="copy body">土木会社の知見を活かし、売却・管理・相続・土地活用までワンストップでサポートする、地域密着の不動産会社です。</div></div>
+      <div class="field"><span class="fl">連絡先・受付</span><div class="copy">お電話：046-259-5365　／　受付時間：9:00〜18:00（土日祝も対応）</div></div>
+      <div class="field"><span class="fl">フッター下部</span><div class="copy muted">宅地建物取引業免許 ｜ プライバシーポリシー ｜ 特定商取引法に基づく表記　／　© いちれん不動産（ICHIREN REAL ESTATE）</div></div>
+    </div>
+  </section>
+
+  <!-- ============ DIVIDER ============ -->
+  <div class="divider"><span class="ln"></span><span class="dt">Microcopy &amp; Variations</span><span class="ln"></span></div>
+
+  <!-- ============ MICROCOPY ============ -->
+  <section class="sec">
+    <div class="sec-bar">
+      <span class="num add">＋</span>
+      <div class="lbl"><span class="en">Microcopy</span><h2>マイクロコピー集</h2></div>
+    </div>
+    <div class="microgrid">
+      <div class="micro"><span class="ml">ボタン文言</span>
+        <ul><li>無料で相談する →</li><li>LINEで相談する</li><li>電話で相談する</li><li>友だち追加する</li><li>このまま問い合わせる</li></ul>
+      </div>
+      <div class="micro"><span class="ml">安心バッジ</span>
+        <ul><li>相談無料</li><li>秘密厳守</li><li>オンライン相談OK</li><li>しつこい営業なし</li><li>地域密着20年以上</li></ul>
+      </div>
+      <div class="micro"><span class="ml">スマホ固定バー</span>
+        <ul><li>電話</li><li>LINE</li><li>無料相談する</li></ul>
+      </div>
+      <div class="micro"><span class="ml">離脱防止の一言</span>
+        <ul><li>「相談したら契約しないと…」はありません</li><li>“聞くだけ”でも大歓迎です</li><li>その土地のこと、私たちがいちばん近くで考えます</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AD-ENTRY FV VARIANTS ============ -->
+  <section class="sec">
+    <div class="sec-bar">
+      <span class="num add">＋</span>
+      <div class="lbl"><span class="en">Entry Variants</span><h2>流入別ファーストビュー差し替え（任意）</h2></div>
+      <span class="pillrole rec">広告連動で効果大</span>
+    </div>
+    <div class="card">
+      <p class="role"><b>役割：</b>広告やDMの訴求とFVの言葉を一致させ、離脱を防ぐ。出し分けできる場合の推奨コピー。</p>
+      <div class="items">
+        <div class="item"><div class="ih"><span class="ico" style="background:var(--lime);color:#3a4a12;">相</span><h3>相続の広告から流入</h3></div><p>キャッチ：「相続した土地、どうしよう。」／リード：「税理士・司法書士と連携し、評価から活用・納税までワンストップ。生前相談も無料です。」</p></div>
+        <div class="item"><div class="ih"><span class="ico" style="background:var(--teal);color:#08382f;">管</span><h3>管理の広告から流入</h3></div><p>キャッチ：「その管理、もっとラクにできます。」／リード：「空室・老朽化・入居者対応。オーナー様の手間を、地元の私たちが引き受けます。」</p></div>
+        <div class="item"><div class="ih"><span class="ico" style="background:var(--navy);">地</span><h3>地主向けDMから流入</h3></div><p>キャッチ：「代々の土地を、次の世代へ。」／リード：「守る・継ぐ・活かす。土地のこれからを、地域20年のいちれん不動産と一緒に。」</p></div>
+      </div>
+    </div>
+  </section>
+
+  <p class="foot">いちれん不動産 ｜ LP コピーシート（案A構成）— ご確認のうえ、採用案・修正点をお知らせください。確定後、トップページに反映します。</p>
+
+</div>
+</body>
+</html>
