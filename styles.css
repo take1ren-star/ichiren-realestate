@@ -86,7 +86,7 @@ ul{margin:0;padding:0;list-style:none;}
 }
 .site-header .wrap{display:flex;align-items:center;gap:18px;height:78px;}
 .brand{display:flex;align-items:center;gap:13px;flex:none;}
-.brand img{height:50px;width:auto;display:block;}
+.brand img{height:44px;width:auto;display:block;background:var(--navy);border-radius:11px;padding:6px;box-sizing:border-box;}
 .brand .bt{line-height:1.15;}
 .brand .bt b{display:block;font-size:18px;font-weight:800;color:var(--navy);letter-spacing:.02em;white-space:nowrap;}
 .brand .bt span{display:block;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--teal-deep);font-family:var(--font-en);white-space:nowrap;}
@@ -161,7 +161,8 @@ ul{margin:0;padding:0;list-style:none;}
   display:flex;flex-direction:column;position:relative;
 }
 .svc-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
-.svc-photo{position:relative;aspect-ratio:16/10;overflow:hidden;}
+.svc-photo{position:relative;aspect-ratio:16/10;}
+.svc-imgclip{position:absolute;inset:0;overflow:hidden;display:block;}
 .svc-photo img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
 .svc-card:hover .svc-photo img{transform:scale(1.06);}
 .svc-badge{position:absolute;left:18px;bottom:-22px;width:54px;height:54px;border-radius:50%;
@@ -251,7 +252,7 @@ ul{margin:0;padding:0;list-style:none;}
 .foot-top{display:flex;flex-wrap:wrap;gap:30px;align-items:flex-start;justify-content:space-between;}
 .foot-brand{max-width:340px;}
 .foot-brand .fb{display:flex;align-items:center;gap:12px;}
-.foot-mark{width:56px;height:56px;border-radius:14px;background:#fff;display:grid;place-items:center;padding:8px;}
+.foot-mark{width:56px;height:56px;border-radius:14px;background:var(--navy);display:grid;place-items:center;padding:8px;}
 .foot-mark img{width:100%;height:100%;object-fit:contain;}
 .foot-brand b{display:block;font-size:18px;color:#fff;font-weight:800;}
 .foot-brand .en{font-size:10px;letter-spacing:.26em;color:var(--teal);}

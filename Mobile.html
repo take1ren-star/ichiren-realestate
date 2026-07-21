@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="mobile.css?v=11" />
+<link rel="stylesheet" href="mobile.css?v=49" />
 <link rel="stylesheet" href="props.css" />
 </head>
 <body>
@@ -17,32 +17,37 @@
   <header class="hdr">
     <div class="row px">
       <a class="brand" href="#top">
-        <img src="assets/logo_mark_hd.png" alt="いちれん不動産" />
+        <img src="assets/logo_ichiren_navy.png?v=2" alt="いちれん不動産" />
         <span class="bt"><span class="en">ICHIREN</span><b>いちれん不動産</b></span>
       </a>
-      <button class="menu" aria-label="メニュー"><span></span><span></span><span></span></button>
+      <button class="menu" id="menuBtn" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
+    <nav class="menu-panel" id="menuPanel" aria-hidden="true">
+      <a href="#service">サービス</a>
+      <a href="#strength">強み</a>
+      <a href="#faq">よくあるご質問</a>
+      <a href="https://ichirenfudosan.com/company.html" target="_blank" rel="noopener">会社概要</a>
+      <a class="menu-corp" href="http://1ren.biz/" target="_blank" rel="noopener">
+        <span>一蓮建設株式会社<small>コーポレートサイト</small></span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+    </nav>
   </header>
 
   <main id="top">
 
   <!-- HERO -->
   <section class="hero px">
-    <div class="hero-bg"><img src="assets/hero_full.png" alt="" aria-hidden="true" /></div>
+    <div class="hero-bg"></div>
     <div class="hero-inner">
-      <span class="eyebrow">Real Estate · 相続 / 管理 / 売買</span>
-      <h1>土地に、<br /><span class="ac">次の価値</span>を。</h1>
-      <p class="lead">相続も、管理も、売却も。地域に根ざした「いちれん不動産」が、最適な選択を一緒に考えます。</p>
-      <div class="hero-actions">
-        <button class="btn btn-primary">無料相談する <span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
-        <button class="btn btn-line-out"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.9 3 2.75 6.34 2.75 10.46c0 3.69 3.29 6.78 7.74 7.37.3.06.71.2.81.46.09.24.06.6.03.85l-.13.79c-.04.23-.18.91.8.5.98-.42 5.3-3.12 7.23-5.34 1.33-1.46 1.97-2.95 1.97-4.63C21.2 6.34 17.06 3 12 3Z"/></svg> LINEで相談する</button>
-      </div>
+      <h1>土木会社だからこそ、<br />土地を深く<span class="ac">理解している</span>。</h1>
+      <p class="tagline">仲介からマンション・戸建ての売買、<br />造成工事から外構工事の事まで一貫対応。</p>
+      <ul class="facts">
+        <li><div class="n">14<small>年</small></div><div class="l">地域密着</div></li>
+        <li><div class="n">3<small>領域</small></div><div class="l">一貫対応</div></li>
+        <li><div class="n">0<small>円</small></div><div class="l">相談・査定</div></li>
+      </ul>
     </div>
-    <ul class="facts">
-      <li><div class="n">20<small>年</small></div><div class="l">地域密着</div></li>
-      <li><div class="n">3<small>領域</small></div><div class="l">一貫対応</div></li>
-      <li><div class="n">0<small>円</small></div><div class="l">相談・査定</div></li>
-    </ul>
   </section>
 
 
@@ -109,7 +114,7 @@
     <div class="svc-list">
 
       <article class="svc">
-        <div class="thumb"><img src="assets/svc_souzoku.png" alt="相続相談" /></div>
+        <div class="thumb"><img src="assets/svc_souzoku.jpg" alt="相続相談" /></div>
         <div class="body">
           <h3><span class="no">01</span>相続相談</h3>
           <p>専門家と連携し、相続の不安や手続きをワンストップで解決します。</p>
@@ -118,7 +123,7 @@
       </article>
 
       <article class="svc">
-        <div class="thumb"><img src="assets/svc_kanri.png" alt="不動産管理" /></div>
+        <div class="thumb"><img src="assets/svc_kanri.jpg" alt="不動産管理" /></div>
         <div class="body">
           <h3><span class="no">02</span>不動産管理</h3>
           <p>入居者募集から建物管理まで、オーナー様の資産価値を守ります。</p>
@@ -127,7 +132,7 @@
       </article>
 
       <article class="svc">
-        <div class="thumb"><img src="assets/svc_baibai.png" alt="売買・仲介" /></div>
+        <div class="thumb"><img src="assets/svc_baibai.jpg" alt="売買・仲介" /></div>
         <div class="body">
           <h3><span class="no">03</span>売買・仲介</h3>
           <p>土地・戸建・収益物件の売却・購入をスムーズにサポートします。</p>
@@ -191,29 +196,20 @@
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- CTA + LINE (side by side) -->
   <section class="sec px" id="cta">
-    <div class="cta">
-      <span class="eyebrow">Free Consultation</span>
-      <h2>まずは無料で、<br />ご相談ください。</h2>
-      <p>土地や相続の悩みは、早めの相談が安心への第一歩です。</p>
-      <div class="cta-actions">
-        <button class="btn btn-primary">無料相談する <span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
-        <button class="btn btn-out" style="background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.3);"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.5 11.5 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.5 11.5 0 0 0 .58 3.6 1 1 0 0 1-.25 1Z"/></svg> 電話で相談する</button>
+    <div class="contact-row">
+      <div class="cta ct-card" id="cta-card">
+        <span class="ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.5 11.5 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.5 11.5 0 0 0 .58 3.6 1 1 0 0 1-.25 1Z"/></svg></span>
+        <h2>まずは<br />無料相談</h2>
+        <p>土地や相続の悩みは、早めの相談を。</p>
+        <a class="btn btn-primary" href="tel:0462595365">相談する</a>
       </div>
-      <div class="cta-checks"><span>相談無料</span><span>秘密厳守</span><span>オンライン相談OK</span></div>
-    </div>
-  </section>
-
-  <!-- LINE -->
-  <section class="sec px" id="line">
-    <div class="line">
-      <span class="lg"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.9 3 2.75 6.34 2.75 10.46c0 3.69 3.29 6.78 7.74 7.37.3.06.71.2.81.46.09.24.06.6.03.85l-.13.79c-.04.23-.18.91.8.5.98-.42 5.3-3.12 7.23-5.34 1.33-1.46 1.97-2.95 1.97-4.63C21.2 6.34 17.06 3 12 3Z"/></svg></span>
-      <h2>LINEで<span class="g">気軽に相談</span></h2>
-      <p>友だち追加で<b>「相続・土地活用 まるわかりガイド（PDF）」</b>をプレゼント。チャットで質問するだけでもOKです。</p>
-      <div class="line-actions">
-        <button class="btn btn-line"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.9 3 2.75 6.34 2.75 10.46c0 3.69 3.29 6.78 7.74 7.37.3.06.71.2.81.46.09.24.06.6.03.85l-.13.79c-.04.23-.18.91.8.5.98-.42 5.3-3.12 7.23-5.34 1.33-1.46 1.97-2.95 1.97-4.63C21.2 6.34 17.06 3 12 3Z"/></svg> 友だち追加する</button>
-        <button class="btn btn-out">QRコードを見る</button>
+      <div class="line ct-card" id="line">
+        <span class="lg"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.9 3 2.75 6.34 2.75 10.46c0 3.69 3.29 6.78 7.74 7.37.3.06.71.2.81.46.09.24.06.6.03.85l-.13.79c-.04.23-.18.91.8.5.98-.42 5.3-3.12 7.23-5.34 1.33-1.46 1.97-2.95 1.97-4.63C21.2 6.34 17.06 3 12 3Z"/></svg></span>
+        <h2>LINEで<br /><span class="g">気軽に相談</span></h2>
+        <p>友だち追加でPDFガイドをプレゼント。</p>
+        <a class="btn btn-line" href="https://lin.ee/zBt7Ix8" target="_blank" rel="noopener">友だち追加</a>
       </div>
     </div>
   </section>
@@ -223,7 +219,7 @@
   <!-- FOOTER -->
   <footer class="ft" id="company">
     <div class="fb">
-      <img src="assets/logo_mark_hd.png" alt="いちれん不動産" />
+      <img src="assets/logo_ichiren_navy.png?v=2" alt="いちれん不動産" />
       <b>いちれん不動産</b>
       <span class="en">ICHIREN REAL ESTATE</span>
     </div>
@@ -231,21 +227,14 @@
       <a href="#service">サービス</a>
       <a href="#strength">強み</a>
       <a href="#faq">よくあるご質問</a>
-      <a href="#company">会社概要</a>
-      <a href="#top">お知らせ</a>
-      <a href="recruit.html">採用情報</a>
+      <a href="https://ichirenfudosan.com/company.html" target="_blank" rel="noopener">会社概要</a>
     </nav>
-    <a class="tel" href="tel:0120123456"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.5 11.5 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.5 11.5 0 0 0 .58 3.6 1 1 0 0 1-.25 1Z"/></svg>0120-123-456</a>
+    <a class="tel" href="tel:0462595365"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.5 11.5 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.5 11.5 0 0 0 .58 3.6 1 1 0 0 1-.25 1Z"/></svg>046-259-5365</a>
     <div class="rc">受付時間 ｜ 9:00〜18:00（土日祝も対応）</div>
     <div class="cp">© ICHIREN REAL ESTATE All Rights Reserved.</div>
   </footer>
 
   <!-- sticky dock -->
-  <div class="dock">
-    <a class="d-tel" href="tel:0120123456"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.5 11.5 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.5 11.5 0 0 0 .58 3.6 1 1 0 0 1-.25 1Z"/></svg></a>
-    <a class="d-line" href="#line"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.9 3 2.75 6.34 2.75 10.46c0 3.69 3.29 6.78 7.74 7.37.3.06.71.2.81.46.09.24.06.6.03.85l-.13.79c-.04.23-.18.91.8.5.98-.42 5.3-3.12 7.23-5.34 1.33-1.46 1.97-2.95 1.97-4.63C21.2 6.34 17.06 3 12 3Z"/></svg>LINE</a>
-    <a class="d-cta" href="#cta">無料相談する</a>
-  </div>
 
 </div>
 
@@ -253,6 +242,22 @@
   document.querySelectorAll('.faq-q').forEach(function(q){
     q.addEventListener('click', function(){ q.closest('.faq-item').classList.toggle('open'); });
   });
+  // header menu toggle
+  (function(){
+    var btn=document.getElementById('menuBtn'), panel=document.getElementById('menuPanel');
+    if(btn&&panel){
+      btn.addEventListener('click',function(){
+        var open=panel.classList.toggle('open');
+        btn.setAttribute('aria-expanded',open?'true':'false');
+        panel.setAttribute('aria-hidden',open?'false':'true');
+      });
+      panel.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click',function(){
+          panel.classList.remove('open');btn.setAttribute('aria-expanded','false');panel.setAttribute('aria-hidden','true');
+        });
+      });
+    }
+  })();
   // gentle reveal
   (function(){
     var els = Array.prototype.slice.call(document.querySelectorAll('.sec, .hero-img, .facts'));
