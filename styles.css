@@ -31,7 +31,6 @@
 
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-@media(min-width:1101px){body{zoom:.75;}}
 body{
   margin:0;
   font-family:var(--font-jp);
