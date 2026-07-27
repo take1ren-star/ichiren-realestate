@@ -4,7 +4,7 @@
    ブランド配色をハードコードし、既存CSSと衝突しないよう pp- 接頭辞
    ============================================================ */
 .pp-section{--pp-navy:#123b7a;--pp-navy-deep:#0d2c5d;--pp-teal:#19e3c3;--pp-teal-deep:#10b89e;--pp-pink:#ff4fa3;--pp-pink-deep:#e83a8c;--pp-pink-soft:#ffe9f3;--pp-bg:#f7fafc;--pp-line:#e7edf4;--pp-muted:#7a8699;--pp-radius:20px;--pp-en:"Outfit","Noto Sans JP",sans-serif;--pp-jp:"Noto Sans JP",system-ui,sans-serif;padding:clamp(52px,7vw,92px) 0;font-family:var(--pp-jp);}
-.pp-wrap{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,40px);}
+.pp-wrap{width:100%;max-width:min(1720px,100%);margin:0 auto;padding:0 clamp(20px,4vw,64px);}
 .pp-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:28px;}
 .pp-kick{display:block;font-family:var(--pp-en);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:12.5px;color:var(--pp-teal-deep);margin-bottom:6px;}
 .pp-title h2{margin:0;font-size:clamp(24px,3.2vw,34px);color:var(--pp-navy);letter-spacing:.02em;line-height:1.3;}
